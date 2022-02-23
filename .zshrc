@@ -34,7 +34,7 @@ alias ls="exa --long"
 alias ls.="exa --all --long"
 alias tree="exa --tree"
 
-VISUAL="vim"
-EDITOR="$VISUAL"
+export VISUAL="vim"
+export EDITOR="$VISUAL"
 
 neofetch
