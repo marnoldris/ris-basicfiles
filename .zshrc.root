@@ -37,3 +37,4 @@ alias tree="exa --tree"
 export VISUAL="vim"
 export EDITOR="$VISUAL"
 
+neofetch
