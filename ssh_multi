@@ -1,0 +1,20 @@
+Make a new file ~/.ssh/config
+
+Contents should look like this:
+Host rivermatt.github.com 		# this is the name you'll use in your .git/config url
+        HostName github.com
+        User git
+        IdentityFile /home/matthew/.ssh/id_ed25519
+        IdentitiesOnly yes
+
+Host riverstone.github.com		# this is the name you'll use in your .git/config url
+        HostName github.com
+        User git
+        IdentityFile /home/matthew/.ssh/riverstone/id_ed25519
+        IdentitiesOnly yes
+
+
+
+Then edit your .git/config file in each git to look like this:
+[remote "origin"]
+        url = git@rivermatt.github.com:RiverMatt/basicfiles	# note the rivermatt.github.com
