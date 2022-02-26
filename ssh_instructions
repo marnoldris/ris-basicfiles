@@ -1,0 +1,2 @@
+$ exec ssh-agent zsh 
+$ ssh-add ~/.ssh/id_25519/riverstone/id_ed25519
