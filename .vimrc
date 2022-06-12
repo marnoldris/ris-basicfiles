@@ -97,21 +97,23 @@ set ignorecase
 set smartcase
 
 " Navigating splits
+set splitbelow
+set splitright
 "map <S-J> :tabp<CR>
 "map <S-K> :tabn<CR>
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
-"map _ <C-W>_
-set splitbelow
-set splitright
 
 set shiftwidth=2
 
 set foldmethod=marker
 	autocmd filetype html set foldmarker=<!--{{{-->,<!--}}}-->
 "	autocmd BufRead,BufNewFile *.html set foldmarker=<!--{{{-->,<!--}}}-->
+
+" Highlight bad whitespace (not sure if this is working
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhiteSpace /\s\+$/
 
 
 " ---- For Python ----
@@ -140,6 +142,7 @@ au BufNewFile,BufRead *.py
 "set tabstop=4		" we want the tab stop to be the same as shiftwidth
 
 " ---- end Python ----
+
 
 " Plugins and addons
 
