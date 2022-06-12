@@ -75,7 +75,8 @@ highlight Visual cterm=reverse ctermbg=NONE
 
 " Custom keybinds
 nnoremap <CR> i<CR><Esc>
-nnoremap <Space> i<Space><Esc>l
+"nnoremap <Space> i<Space><Esc>l
+nnoremap <Space> za					" use spacebar to fold/unfold
 nnoremap <Tab> i<Tab><Esc>l
 nnoremap <BS> hx<Esc>
 nnoremap ,/ @="mc0i//\<lt>Esc>`cj"<CR>
@@ -103,6 +104,8 @@ map <C-K> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 "map _ <C-W>_
+set splitbelow
+set splitright
 
 set shiftwidth=2
 
@@ -110,15 +113,33 @@ set foldmethod=marker
 	autocmd filetype html set foldmarker=<!--{{{-->,<!--}}}-->
 "	autocmd BufRead,BufNewFile *.html set foldmarker=<!--{{{-->,<!--}}}-->
 
-"set foldmethod=indent
-"	au BufRead * normal zM
 
-" For Python
+" ---- For Python ----
+au BufNewFile,BufRead *.py
+	\ set tabstop=4
+	\ | set softtabstop=4
+	\ | set shiftwidth=4
+	\ | set textwidth=79
+	\ | set expandtab
+	\ | set fileformat=unix
+	\ | set foldmethod=indent
+	"\ | set foldlevel=99
+"au BufNewFile,BufRead *.py
+"	\ set tabstop=4
+"	\ softtabstop=4
+"	\ shiftwidth=4
+"	\ textwidth=79
+"	\ expandtab
+"	\ fileformat=unix
+"	\ foldmethod=indent
+"	\ foldlevel=99
+
 "set softtabstop=4
 "set expandtab
-set shiftwidth=4	" indent a line in normal mode using >> or <<, and in insert mode using ctrl+t or ctrl+d
-set tabstop=4		" we want the tab stop to be the same as shiftwidth
+"set shiftwidth=4	" indent a line in normal mode using >> or <<, and in insert mode using ctrl+t or ctrl+d
+"set tabstop=4		" we want the tab stop to be the same as shiftwidth
 
+" ---- end Python ----
 
 " Plugins and addons
 
