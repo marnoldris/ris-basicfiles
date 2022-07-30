@@ -20,14 +20,8 @@ PROMPT='%B%(?.%F{green}.%F{red})>%f %F{yellow}%n%f%F{green}@%f%F{yellow}%m %~%f%
 
 bindkey '^R' history-incremental-search-backward
 
-alias tshift="sudo timeshift-autosnap && sudo update-grub"
-alias scan="sudo arp-scan --localnet"
-alias zip="zip -r"
 alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
 alias tmp="cd $(mktemp -d)"
-
-alias vc="protonvpn-cli c -f"
-alias vd="protonvpn-cli d"
 
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias ls="exa --long"
