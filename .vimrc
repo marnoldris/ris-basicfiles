@@ -2,7 +2,7 @@ if v:lang =~ "utf8$" || v:lang =~ "UTF-8$"
    set fileencodings=ucs-bom,utf-8,latin1
 endif
 
-set bs=indent,eol,start		" allow backspacing over everything in insert mode
+set bs=indent,eol,start	" allow backspacing over everything in insert mode
 set ai			" always set autoindenting on
 "set backup		" keep a backup file
 set viminfo='20,\"50	" read/write a .viminfo file, don't store more
@@ -52,11 +52,12 @@ endif
 
 filetype plugin on
 
-"if &term=="xterm"
-     set t_Co=8
-     set t_Sb=[4%dm
-     set t_Sf=[3%dm
-"endif
+" Terminal colors
+"set t_Co=256		" set 8 colors
+"set t_Sb=[4%dm	" set background color
+"set t_Sf=[3%dm	" set foreground oolor
+colo default 		" or default (earthy tones), elflord (browns, blues, pinks), evening (like default but with yellow), industry 
+
 
 " Don't wake up system with blinking cursor:
 " http://www.linuxpowertop.org/known.php
@@ -65,20 +66,18 @@ let &guicursor = &guicursor . ",a:blinkon0"
 
 " Tweaks
 set number
-colo desert
-"colo delek
-" Show tab characters or not. :set list! will toggle tab characters on and off
-set nolist
+set ignorecase
+set smartcase
+set nolist " Show tab characters or not. :set list! will toggle tab characters on and off
+set lcs=tab:»_,trail:·
 set showcmd
-"set list lcs=tab:\>\ 
-highlight Visual cterm=reverse ctermbg=NONE
+highlight Visual cterm=reverse ctermbg=NONE " proper inverse highlighting
 
 " Custom keybinds
 nnoremap <CR> i<CR><Esc>
-"nnoremap <Space> i<Space><Esc>l
-nnoremap <Space> za					" use spacebar to fold/unfold
 nnoremap <Tab> i<Tab><Esc>l
 nnoremap <BS> hx<Esc>
+nnoremap Q <nop>	" remove the ex-mode hotkey
 nnoremap ,/ @="mc0i//\<lt>Esc>`cj"<CR>
 nnoremap ,< mc^i<!--<Space><Esc>$a<Space>--><Esc>`clllll
 nnoremap ,# @="mc0i#\<lt>Esc>`cj"<CR>
@@ -93,8 +92,6 @@ nnoremap ,,j mcO/*--------------------------------------------------------------
 nnoremap ,s mc^i###<Space><Esc>$a<Space>###<Esc>`clll
 nnoremap ,,s mcO########################################################################<Esc>jI###<Space><Esc>A<Space>###<CR>########################################################################<Esc>`clll
 
-set ignorecase
-set smartcase
 
 " Navigating splits
 set splitbelow
@@ -108,53 +105,30 @@ map <C-l> <C-W>l
 
 set shiftwidth=2
 
-set foldmethod=marker
-	autocmd filetype html set foldmarker=<!--{{{-->,<!--}}}-->
-"	autocmd BufRead,BufNewFile *.html set foldmarker=<!--{{{-->,<!--}}}-->
 
-" Highlight bad whitespace (not sure if this is working
-au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhiteSpace /\s\+$/
+" Folds
+set foldmethod=indent
+set foldlevel=99
+nnoremap <Space> za
 
 
 " ---- For Python ----
 au BufNewFile,BufRead *.py
-	\ set tabstop=4
-	\ | set softtabstop=4
-	\ | set shiftwidth=4
-	\ | set textwidth=79
-	\ | set expandtab
-	\ | set fileformat=unix
-	\ | set foldmethod=indent
-	"\ | set foldlevel=99
-"au BufNewFile,BufRead *.py
-"	\ set tabstop=4
-"	\ softtabstop=4
-"	\ shiftwidth=4
-"	\ textwidth=79
-"	\ expandtab
-"	\ fileformat=unix
-"	\ foldmethod=indent
-"	\ foldlevel=99
-
-"set softtabstop=4
-"set expandtab
-"set shiftwidth=4	" indent a line in normal mode using >> or <<, and in insert mode using ctrl+t or ctrl+d
-"set tabstop=4		" we want the tab stop to be the same as shiftwidth
+	\ setlocal tabstop=4
+	\ | setlocal softtabstop=4
+	\ | setlocal shiftwidth=4
+	\ | setlocal expandtab
+	\ | setlocal fileformat=unix
+	\ | setlocal foldmethod=indent
+	\ | setlocal foldlevel=99
+	\ | setlocal list
+	\ | setlocal lcs=lead:·
+	\ | setlocal colorcolumn=79
+	\ | nnoremap <F2> :!python %<CR>
+	"\ | nnoremap <F2> :w<CR>:!python %<CR>
 
 " ---- end Python ----
 
-
-" Plugins and addons
-
-" Syntastic
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 " vim.gtk/gvim: map alt+[hjkl] to normal terminal behaivior
 " source: https://stackoverflow.com/questions/26366055/how-to-make-alt-works-in-gvim-as-in-vim
