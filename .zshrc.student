@@ -26,3 +26,29 @@ alias tree="exa --tree"
 export VISUAL="micro"
 export EDITOR="$VISUAL"
 
+echo "
+                                    ll:;,,,;clooodxkOKNl                          
+                            dl:;;,,,....;dddoolc::::;;,,,,;ld'                    
+                           ...,:loooooooodxxxxxxxxxxxxxxxxoc;''c.                 
+                        ;l;..'lxdcldxxxxxxxxxxxxxxxxxxxxxxxxxxo;;;,l              
+                     .l,.':oxxxc..;,;lxxxxxxxxxxxxxxxxxxxxxxxxxxxxd;,.            
+                   'c..;dxxxxxx'.x:;;cloxxxxxxxooo:,,:xxxxxxxxxxxxxxo'co:         
+                   ....xxxxxxxx.:o....:xxxxxxxo.'o,.,o;dxxxxxxxxxxxlc:,'..,ld;    
+                  l..'oxxxxxxxx';d...xl::dxxc,.;kk..Ok;.:xxxxxxxxxxxxxxxx,.,..;'  
+                ,,..lxxxxxxxxxxo.;olxxxxxxxxxxollc......':xxxxxxxxxxxxxxx..0d:.,, 
+               l..cxxxxxxxxxxxxx:..dxxxxxxxxxxxxxxd;,cldxxxxxxxxxxxxxxxxxd......, 
+              ;..;lxxxxxxxxxxxxxx,,dxxxxxxxxxxxxxxxxxxxxcoxxxxxxxxxxxxxxxxxol:;., 
+              ....cxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx;,xxxxxxxxxxxxxxxxxxxxxx:..
+             l..,dxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',xxxxxxxxxxxxxxxxxxxxxxc..
+           l'..'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxd.oxxxxxxxxxxxxxxxxxxxxxx.  
+        .l,..,oxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxc:xllxxxxxxxxxxxxdxxxxxxo.   
+     .x;..,lxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxlllxo;lxxdxxxccxxxx,.xxxxl,     
+   lx'.,lolc:,'.....;xxxxxxxxxxxxxxxxxxxxxxxxxxxdoxxx;cxxxo.xxx:.xxxx:.lc;..      
+ 0c....'.    .....,cxxxxxxxxxxxxxxxxxxxd:;xxxxxxxxxl.:olc:'.;:l;.l:;'....         
+           l,.,coxdolc::;,''...;xxxxxl'...xxxxddxxc,................  ..          
+        .c'..,'..             .:xxl;......xxd;.'xdd;...
+                             ,.:,..     ..:;.. .'ox:..
+                           .c.           ..     ..,,..
+                                                    .c
+                                                                                  
+"                                                                             
