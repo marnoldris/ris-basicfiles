@@ -149,7 +149,7 @@ screens = [
                 widget.Sep(),
                 widget.Battery(foreground="bbbb00"),
                 widget.Systray(),
-                widget.Clock(format="%Y-%m-%d %a %H:%M.%S"),
+                widget.Clock(format="%Y-%m-%d %a %I:%M.%S %p"),
                 widget.QuickExit(),
             ],
             24,
