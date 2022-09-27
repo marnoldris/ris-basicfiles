@@ -71,6 +71,13 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    
+    # Function key binds
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Brightness down 5%"),
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5"), desc="Lower volume 5%"),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5"), desc="Raise volume 5%"),
+    Key([], "XF86AudioMute", lazy.spawn("pamixer -m"), desc="Mute audio"),
 ]
 
 groups = [Group(i) for i in "123456789"]
