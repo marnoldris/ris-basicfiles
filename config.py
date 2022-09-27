@@ -150,7 +150,7 @@ screens = [
                 widget.Battery(foreground="bbbb00"),
                 widget.Systray(),
                 widget.Clock(format="%Y-%m-%d %a %I:%M.%S %p"),
-                widget.QuickExit(),
+                widget.QuickExit(foreground="#aa11aa"),
             ],
             24,
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
