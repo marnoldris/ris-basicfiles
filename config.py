@@ -29,6 +29,19 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
+
+# For autostart
+import os
+import subprocess
+
+from libqtile import hook
+
+@hook.subscribe.startup_once
+def autostart():
+    home = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.run([home])
+
+
 mod = "mod4"
 terminal = guess_terminal()
 
