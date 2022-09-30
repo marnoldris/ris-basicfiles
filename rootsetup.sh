@@ -14,4 +14,4 @@ systemctl enable cronie.service sshd.service reflector.service reflector.timer
 systemctl start reflector.timer
 
 # install cron job for fn keys
-echo '@reboot echo 2 > /sys/module/hid_apple/parameters/fnmode' > /etc/cron.d/fnkeys
+echo '@reboot root echo 2 > /sys/module/hid_apple/parameters/fnmode' > /etc/cron.d/fnkeys
