@@ -2,7 +2,7 @@
 	
 # check that the proper number of arguments are present, otherwise exit the script
 if [[ $# -ne 3 ]]; then
-    echo "Usage: ./usersetup.sh username password default_group"
+    echo "Usage: ./usersetup.sh <username> <password> <default_group>"
     echo "Exiting..."
     exit 1
 fi
