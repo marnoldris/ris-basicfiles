@@ -1,8 +1,9 @@
 #!/bin/bash
-
+	
 # check that the proper number of arguments are present, otherwise exit the script
 if [[ $# -ne 3 ]]; then
-    echo "Usage: ./usersetup.sh username password default_group\nExiting.."
+    echo "Usage: ./usersetup.sh username password default_group"
+    echo "Exiting..."
     exit 1
 fi
 
@@ -13,7 +14,7 @@ GROUP=$3
 # if the user exists, delete them and all of their files
 if id "$USERNAME" &>/dev/null; then
     echo "User name matches existing user; deleting user account to start fresh..."
-    userdel -rf $USERNAME
+    userdel -rf $USERNAME &>/dev/null
 fi
 
 # make the user account
