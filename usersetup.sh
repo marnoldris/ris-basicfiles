@@ -18,6 +18,7 @@ if id "$USERNAME" &>/dev/null; then
 fi
 
 # make the user account
+# the &>/dev/null sends the standard output and error to null to suppress the output of the commands
 groupadd $GROUP &>/dev/null
 useradd -m -g $GROUP -s $(which zsh) $USERNAME
 
