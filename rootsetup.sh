@@ -18,7 +18,7 @@ echo "Attempting to start reflector.timer..."
 systemctl start reflector.timer
 
 # make usersetup.sh executable
-echo "Making usersetup.sh executable..."
+echo "Making usersetup.sh and ./kde_usersetup.sh executable..."
 chmod +x ./usersetup.sh ./kde_usersetup.sh
 
 # install cron job for fn keys
