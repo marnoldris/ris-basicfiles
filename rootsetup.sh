@@ -19,7 +19,7 @@ systemctl start reflector.timer
 
 # make usersetup.sh executable
 echo "Making usersetup.sh executable..."
-chmod +x ./usersetup.sh
+chmod +x ./usersetup.sh ./kde_usersetup.sh
 
 # install cron job for fn keys
 #echo '@reboot root echo 2 > /sys/module/hid_apple/parameters/fnmode' > /etc/cron.d/fnkeys
