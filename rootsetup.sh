@@ -21,6 +21,12 @@ systemctl start reflector.timer
 echo "Making usersetup.sh and ./kde_usersetup.sh executable..."
 chmod +x ./usersetup.sh ./kde_usersetup.sh
 
+# tweak /etc/pacman.conf
+echo "Tweaking /etc/pacman.conf..."
+sed -i 's/#Color/Color/' /etc/pacman.conf
+sed -i 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf
+sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+
 # install cron job for fn keys
 #echo '@reboot root echo 2 > /sys/module/hid_apple/parameters/fnmode' > /etc/cron.d/fnkeys
 
