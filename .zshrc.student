@@ -22,6 +22,7 @@ alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
 
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias tree="exa --tree"
+alias ls="exa"
 
 export VISUAL="micro"
 export EDITOR="$VISUAL"
