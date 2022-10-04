@@ -29,10 +29,10 @@ echo $USERNAME:$PASSWORD | chpasswd
 
 # make directories for the user
 echo "Making directories for $USERNAME..."
-mkdir -p /home/$USERNAME/.config/qtile
-mkdir -p /home/$USERNAME/.config/picom
-mkdir -p /home/$USERNAME/Documents
-mkdir -p /home/$USERNAME/Pictures
+install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
+install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
+install -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
+install -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
 
 # install files
 echo "Installing files..."
