@@ -38,9 +38,13 @@ echo "Installing files..."
 install -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
 install -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 install -C -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
+install -C rs_otter.png /usr/share/rs_otter.png
 
 # change kde settings
 echo "Installing KDE settings..."
+install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
+echo -e 'icon=/usr/share/rs_otter.png' >> /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
+
 install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/dolphinrc
 echo -e '[General]\nRememberOpenedTabs=false' >> /home/$USERNAME/.config/dolphinrc
 
