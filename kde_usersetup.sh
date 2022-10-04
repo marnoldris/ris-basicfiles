@@ -43,7 +43,7 @@ install -C rs_otter.png /usr/share/rs_otter.png
 # change kde settings
 echo "Installing KDE settings..."
 install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
-echo -e 'icon=/usr/share/rs_otter.png' >> /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
+echo -e '[Containments][2][Applets][3][Configuration][General]\nicon=/usr/share/rs_otter.png' >> /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
 
 install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/dolphinrc
 echo -e '[General]\nRememberOpenedTabs=false' >> /home/$USERNAME/.config/dolphinrc
