@@ -19,7 +19,7 @@ PROMPT='%B%(?.%F{green}.%F{red})>%f %F{cyan}%n%f%F{green}@%f%F{cyan}%m %~%f%b %F
 bindkey '^R' history-incremental-search-backward
 
 alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
-alias battery="upower -i $(upower -e | grep BAT)"
+alias battery='echo "$(cat /sys/class/power_supply/BAT0/capacity)%"'
 
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias tree="exa --tree"
