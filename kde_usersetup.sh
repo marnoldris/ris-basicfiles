@@ -14,7 +14,7 @@ GROUP=$3
 # if the user exists, delete them and all of their files
 if id "$USERNAME" &>/dev/null; then
     echo "User name matches existing user; deleting user account to start fresh..."
-    userdel -rf $USERNAME
+    userdel -rf $USERNAME &>/dev/null
 fi
 
 # make the user account
