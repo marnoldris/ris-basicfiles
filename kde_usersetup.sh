@@ -56,6 +56,9 @@ echo -e '[Alacritty.desktop]\nNew=none,none,New Terminal\n_k_friendly_name=Alacr
 install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/ksmserverrc
 echo -e '[General]\nconfirmLogout=false\nloginMode=emptySession\nofferShutdown=false' >> /home/$USERNAME/.config/ksmserverrc
 
+install -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/powermanagementprofilesrc
+echo -e '[AC][SuspendSession]\nidleTime=1800000\nsuspendThenHibernate=false\nsuspendType=1' >> /home/$USERNAME/.config/powermanagementprofilesrc
+
 
 # make sure everything is executable
 
