@@ -41,19 +41,19 @@ install -C -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
 
 # change kde settings
 echo "Installing KDE settings..."
-install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/dolphinrc
+install -C -o $USERNAME -g $GROUP /home/$USERNAME/.config/dolphinrc
 echo -e '[General]\nRememberOpenedTabs=false' >> /home/$USERNAME/.config/dolphinrc
 
-install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/kcminputrc
+install -C -o $USERNAME -g $GROUP /home/$USERNAME/.config/kcminputrc
 echo -e '[Mouse]\nX11LibInputXAccelProfileFlat=false\nXLbInptAccelProfileFlat=true' >> /home/$USERNAME/.config/kcminputrc
 
-install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/kdeglobals
+install -C -o $USERNAME -g $GROUP /home/$USERNAME/.config/kdeglobals
 echo -e '[KDE]\nSingleClick=false' >> /home/$USERNAME/.config/kdeglobals
 
-install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/kglobalshortcutsrc
+install -C -o $USERNAME -g $GROUP /home/$USERNAME/.config/kglobalshortcutsrc
 echo -e '[Alacritty.desktop]\nNew=none,none,New Terminal\n_k_friendly_name=Alacritty\n_launch=Meta+Return,none,Alacritty' >> /home/$USERNAME/.config/kglobalshortcutsrc
 
-install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/ksmserverrc
+install -C -o $USERNAME -g $GROUP /home/$USERNAME/.config/ksmserverrc
 echo -e '[General]\nconfirmLogout=false\nloginMode=emptySession\nofferShutdown=false' >> /home/$USERNAME/.config/ksmserverrc
 
 
