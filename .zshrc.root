@@ -22,6 +22,7 @@ bindkey '^R' history-incremental-search-backward
 
 alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
 alias tmp="cd $(mktemp -d)"
+alias battery="upower -i $(upower -e | grep BAT)"
 
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias ls="exa --long"
