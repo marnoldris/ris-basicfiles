@@ -17,9 +17,9 @@ systemctl enable cronie.service sshd.service reflector.service reflector.timer
 echo "Attempting to start reflector.timer..."
 systemctl start reflector.timer
 
-# make usersetup.sh executable
-echo "Making usersetup.sh and ./kde_usersetup.sh executable..."
-chmod +x ./usersetup.sh ./kde_usersetup.sh
+# make files executable
+echo "Making qtile_usersetup.sh and ./kde_usersetup.sh executable..."
+chmod +x ./qtile_usersetup.sh ./kde_usersetup.sh
 
 # tweak /etc/pacman.conf
 echo "Tweaking /etc/pacman.conf..."
