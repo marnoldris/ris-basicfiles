@@ -29,6 +29,7 @@ echo $USERNAME:$PASSWORD | chpasswd
 
 # make directories for the user
 echo "Making directories for $USERNAME..."
+install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
 install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
 install -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
