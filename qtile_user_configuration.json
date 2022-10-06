@@ -154,6 +154,7 @@
         "pamixer",
         "picom",
         "slock",
+        "udisks2",
         "libreoffice-fresh",
         "broadcom-wl"
     ],
