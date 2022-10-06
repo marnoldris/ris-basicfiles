@@ -151,6 +151,7 @@
         "brightnessctl",
         "pamixer",
         "picom",
+        "libreoffice-fresh",
         "broadcom-wl"
     ],
     "profile": {
