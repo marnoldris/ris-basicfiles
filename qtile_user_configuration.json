@@ -151,6 +151,7 @@
         "brightnessctl",
         "pamixer",
         "picom",
+        "slock",
         "libreoffice-fresh",
         "broadcom-wl"
     ],
