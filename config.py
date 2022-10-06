@@ -90,7 +90,7 @@ keys = [
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
     Key([], "XF86AudioLowerVolume", lazy.widget["pulsevolume"].decrease_vol(), desc="Lower volume"),
     Key([], "XF86AudioRaiseVolume", lazy.widget["pulsevolume"].increase_vol(), desc="Raise volume"),
-    Key([], "XF86AudioMute", lazy.spawn("pamixer --set-volume 0"), desc="Mute audio"),
+    Key([], "XF86AudioMute", lazy.widget["pulsevolume"].mute(), desc="Mute audio"),
 ]
 
 groups = [Group(i) for i in "123456789"]
