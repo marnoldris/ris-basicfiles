@@ -88,8 +88,8 @@ keys = [
     # Function key binds
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Brightness down 5%"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pamixer --decrease 5"), desc="Lower volume 5%"),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pamixer --increase 5"), desc="Raise volume 5%"),
+    Key([], "XF86AudioLowerVolume", lazy.widget["pulsevolume"].decrease_vol(), desc="Lower volume"),
+    Key([], "XF86AudioRaiseVolume", lazy.widget["pulsevolume"].increase_vol(), desc="Raise volume"),
     Key([], "XF86AudioMute", lazy.spawn("pamixer --set-volume 0"), desc="Mute audio"),
 ]
 
