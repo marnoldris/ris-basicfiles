@@ -34,11 +34,16 @@ install -C -o $USERNAME -g $GROUP -d /home/$USERNAME/.config
 
 
 # install files
+# maybe these files should be owned by root and thus read only?
 echo "Installing files..."
-install -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
-install -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
-install -C -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
-install -C rs_otter.png /usr/share/rs_otter.png
+#install -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
+#install -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
+#install -C -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
+#install -C rs_otter.png /usr/share/rs_otter.png
+cp .zshrc.student /home/$USERNAME/.zshrc
+cp .vimrc /home/$USERNAME/.vimrc
+cp kde_wp.jpg /home/$USERNAME/Pictures/
+cp rs_otter.png /usr/share/rs_otter.png
 
 # change kde settings
 echo "Installing KDE settings..."
