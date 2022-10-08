@@ -96,6 +96,10 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
     Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next track"),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous track"),
+    
+    # Custom application key binds
+    Key([mod], "c", lazy.spawn("chromium"), desc="Launch Chromium browser"),
+    Key([mod, "shift"], "c", lazy.spawn("chromium --incognito"), desc="Launch incognito Chromium"),
 ]
 
 groups = [Group(i) for i in "123456789"]
