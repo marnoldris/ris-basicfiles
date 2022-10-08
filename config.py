@@ -87,11 +87,15 @@ keys = [
     Key(["control", "mod1"], "l", lazy.spawn("slock"), desc="Locks the screen"),
     
     # Function key binds
+    Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget")
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Brightness down 5%"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
     Key([], "XF86AudioLowerVolume", lazy.widget["pulsevolume"].decrease_vol(), desc="Lower volume"),
     Key([], "XF86AudioRaiseVolume", lazy.widget["pulsevolume"].increase_vol(), desc="Raise volume"),
     Key([], "XF86AudioMute", lazy.widget["pulsevolume"].mute(), desc="Mute audio"),
+    Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause"), desc="Play/Pause player"),
+    Key([], "XF86AudioNext", lazy.spawn("playerctl next"), desc="Next track"),
+    Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous track"),
 ]
 
 groups = [Group(i) for i in "123456789"]
