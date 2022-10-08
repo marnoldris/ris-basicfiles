@@ -171,7 +171,7 @@ screens = [
                 widget.PulseVolume(update_interval=0.2),
                 widget.Sep(),
                 widget.Systray(),
-                widget.Clock(format="%m-%d-%Y %a %I:%M.%S %p"),
+                widget.Clock(format="%I:%M.%S%p %a %D"),
                 widget.QuickExit(foreground="#aa11aa"),
             ],
             24,
