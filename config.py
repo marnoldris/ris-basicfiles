@@ -125,7 +125,7 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=4, margin=3, insert_position=1),
+    layout.Columns(border_focus=["#aaaa00"], border_width=3, margin=7, insert_position=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     layout.Stack(num_stacks=2),
@@ -171,7 +171,7 @@ screens = [
                 widget.PulseVolume(update_interval=0.2),
                 widget.Sep(),
                 widget.Systray(),
-                widget.Clock(format="%I:%M.%S%p %a %D"),
+                widget.Clock(format="%I:%M.%S%p %a %D", foreground="#bbbb00"),
                 widget.QuickExit(foreground="#aa11aa"),
             ],
             24,
