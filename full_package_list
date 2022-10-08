@@ -431,6 +431,7 @@ pipewire-jack
 pipewire-pulse
 pixman
 pkgconf
+playerctl
 polkit
 poppler
 popt
