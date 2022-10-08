@@ -56,7 +56,7 @@ filetype plugin on
 "set t_Co=256		" set 8 colors
 "set t_Sb=[4%dm	" set background color
 "set t_Sf=[3%dm	" set foreground oolor
-colo default 		" or default (earthy tones), elflord (browns, blues, pinks), evening (like default but with yellow), industry 
+colo elflord 		" or default (earthy tones), elflord (browns, blues, pinks), evening (like default but with yellow), industry 
 
 
 " Don't wake up system with blinking cursor:
