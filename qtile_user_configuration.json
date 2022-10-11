@@ -157,6 +157,7 @@
         "slock",
         "udisks2",
         "libreoffice-fresh",
+        "imagemagick",
         "broadcom-wl"
     ],
     "profile": {
