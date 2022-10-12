@@ -158,6 +158,7 @@
         "udisks2",
         "libreoffice-fresh",
         "imagemagick",
+        "bat",
         "broadcom-wl"
     ],
     "profile": {
