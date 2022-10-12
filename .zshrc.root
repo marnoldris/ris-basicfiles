@@ -14,8 +14,7 @@ compinit
 
 PATH="$PATH:/$HOME/.local/bin"
 
-#RPROMPT='%(?.%F{blue}.%F{#FFFF00})%T%f'
-RPROMPT='%F{#FFFF00}%T%f'
+#RPROMPT='%F{#FFFF00}%T%f'
 PROMPT='%B%(?.%F{green}.%F{red})>%f %F{yellow}%n%f%F{green}@%f%F{yellow}%m %~%f%b %F{green}%(!.#.$)%f '
 
 bindkey '^R' history-incremental-search-backward
