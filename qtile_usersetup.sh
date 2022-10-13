@@ -29,21 +29,21 @@ echo $USERNAME:$PASSWORD | chpasswd
 
 # make directories for the user
 echo "Making directories for $USERNAME..."
-install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
-install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
-install -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
-install -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
-install -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
 
 # install files
 # maybe .zshrc .vimrc autostart.sh picom.conf config.py and kde_wp.jpg should be owned by root?
 echo "Installing files..."
-#install -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
-#install -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
-#install -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
-#install -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
-#install -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
-#install -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
+#install -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
+#install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
+#install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
+#install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
+#install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
+#install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
 cp .zshrc.student /home/$USERNAME/.zshrc
 cp .vimrc /home/$USERNAME/.vimrc
 cp autostart.sh /home/$USERNAME/.config/qtile/
