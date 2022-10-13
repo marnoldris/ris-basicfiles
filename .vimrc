@@ -71,7 +71,8 @@ set smartcase
 set nolist " Show tab characters or not. :set list! will toggle tab characters on and off
 set lcs=tab:»_,trail:·
 set showcmd
-highlight Visual cterm=reverse ctermbg=NONE " proper inverse highlighting
+" proper inverse highlighting
+highlight Visual cterm=reverse ctermbg=NONE 
 
 " Custom keybinds
 nnoremap <CR> i<CR><Esc>
