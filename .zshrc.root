@@ -30,6 +30,7 @@ neofetch
 alias ls="exa --long"
 alias ls.="exa --all --long"
 alias tree="exa --tree"
+alias bat="bat -P"
 
 # udisksctl aliases
 alias udmount="udisksctl mount -b"

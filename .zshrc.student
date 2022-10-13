@@ -51,6 +51,7 @@ echo "
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias tree="exa --tree"
 alias ls="exa"
+alias bat="bat -P"
 
 # udisksctl aliases
 alias udmount="udisksctl mount -b"
