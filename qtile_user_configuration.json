@@ -5,7 +5,7 @@
     "desktop-environment": "qtile",
     "gfx_driver": "All open-source (default)",
     "harddrives": [
-        "/dev/sda"
+        ""
     ],
     "mirror-region": {
         "United States": {
@@ -159,6 +159,7 @@
         "libreoffice-fresh",
         "imagemagick",
         "bat",
+	"tmux",
         "broadcom-wl"
     ],
     "profile": {
