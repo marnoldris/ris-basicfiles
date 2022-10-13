@@ -19,20 +19,24 @@ PROMPT='%B%(?.%F{green}.%F{red})>%f %F{yellow}%n%f%F{green}@%f%F{yellow}%m %~%f%
 
 bindkey '^R' history-incremental-search-backward
 
-alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
-alias tmp="cd $(mktemp -d)"
-alias battery='echo "$(cat /sys/class/power_supply/BAT0/capacity)%"'
+export VISUAL="vim"
+export EDITOR="$VISUAL"
 
-# udisksctl aliases
-alias udmount="udisksctl mount -b"
-alias udunmount="udisksctl unmount -b"
+neofetch
 
+
+# Aliases
 # Rust replacements: exa, bat, ripgrep (rg), fd (find), procs, broot (tree+)
 alias ls="exa --long"
 alias ls.="exa --all --long"
 alias tree="exa --tree"
 
-export VISUAL="vim"
-export EDITOR="$VISUAL"
+# udisksctl aliases
+alias udmount="udisksctl mount -b"
+alias udunmount="udisksctl unmount -b"
 
-neofetch
+alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
+alias tmp="cd $(mktemp -d)"
+alias battery='echo "$(cat /sys/class/power_supply/BAT0/capacity)%"'
+alias mv="mv -v"
+alias cp="cp -v"
