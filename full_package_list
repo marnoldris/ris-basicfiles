@@ -24,6 +24,7 @@ b43-fwcutter
 base
 base-devel
 bash
+bat
 bind-tools
 binutils
 bison
