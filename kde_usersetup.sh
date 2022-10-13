@@ -40,10 +40,10 @@ echo "Installing files..."
 #install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 #install -v -C -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
 #install -v -C rs_otter.png /usr/share/rs_otter.png
-cp .zshrc.student /home/$USERNAME/.zshrc
-cp .vimrc /home/$USERNAME/.vimrc
-cp kde_wp.jpg /home/$USERNAME/Pictures/
-cp rs_otter.png /usr/share/rs_otter.png
+cp -v .zshrc.student /home/$USERNAME/.zshrc
+cp -v .vimrc /home/$USERNAME/.vimrc
+cp -v kde_wp.jpg /home/$USERNAME/Pictures/
+cp -v rs_otter.png /usr/share/rs_otter.png
 
 # change kde settings
 echo "Installing KDE settings..."

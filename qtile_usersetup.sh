@@ -44,12 +44,12 @@ echo "Installing files..."
 #install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
 #install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 #install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
-cp .zshrc.student /home/$USERNAME/.zshrc
-cp .vimrc /home/$USERNAME/.vimrc
-cp autostart.sh /home/$USERNAME/.config/qtile/
-cp picom.conf /home/$USERNAME/.config/picom/
-cp config.py /home/$USERNAME/.config/qtile/
-cp kde_wp.jpg /home/$USERNAME/Pictures/
+cp -v .zshrc.student /home/$USERNAME/.zshrc
+cp -v .vimrc /home/$USERNAME/.vimrc
+cp -v autostart.sh /home/$USERNAME/.config/qtile/
+cp -v picom.conf /home/$USERNAME/.config/picom/
+cp -v config.py /home/$USERNAME/.config/qtile/
+cp -v kde_wp.jpg /home/$USERNAME/Pictures/
 
 # make sure everything is executable
 echo "Making necessary files executable..."

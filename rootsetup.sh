@@ -6,8 +6,8 @@ chsh -s $(which zsh)
 
 # copy in files
 echo "Copying essential files..."
-cp .zshrc.root ~/.zshrc
-cp .vimrc ~/.vimrc
+cp -v .zshrc.root ~/.zshrc
+cp -v .vimrc ~/.vimrc
 
 # enable system services
 echo "Enabling extra system services..."
