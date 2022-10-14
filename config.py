@@ -132,11 +132,11 @@ for i in groups:
     )
 
 layouts = [
-    layout.MonadTall(ratio=0.6, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
-    layout.MonadWide(ratio=0.7, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
     layout.Columns(border_focus=["#aaaa00"], border_width=3, margin=7, insert_position=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
+    layout.MonadTall(ratio=0.6, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
+    layout.MonadWide(ratio=0.7, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
     layout.Stack(num_stacks=2),
     layout.Bsp(),
     layout.Matrix(),
