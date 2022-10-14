@@ -86,7 +86,8 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key(["control", "mod1"], "l", lazy.spawn("slock"), desc="Locks the screen"),
+    Key(["control", "mod1"], "space", lazy.spawn("slock"), desc="Locks the screen"),
+    Key(["control", "mod1"], "p", lazy.spawn("flameshot gui"), desc="Takes a screenshot"),
     
     # Function key binds
     Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),

@@ -160,6 +160,7 @@
         "imagemagick",
         "bat",
 	"tmux",
+	"flameshot",
         "broadcom-wl"
     ],
     "profile": {
