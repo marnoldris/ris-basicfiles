@@ -99,11 +99,10 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Spawn dmenu_run"),
     Key(["control", "mod1"], "space", lazy.spawn("slock"), desc="Locks the screen"),
     
     # Function key binds
-    Key([], "XF86Search", lazy.spawn("dmenu_run"), desc="Spawn dmenu_run"),
+    Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Brightness down 5%"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
     Key([], "XF86AudioLowerVolume", lazy.widget["pulsevolume"].decrease_vol(), desc="Lower volume"),
@@ -117,10 +116,6 @@ keys = [
     Key([mod], "c", lazy.spawn("chromium"), desc="Launch Chromium browser"),
     Key([mod, "shift"], "c", lazy.spawn("chromium --incognito"), desc="Launch incognito Chromium"),
     Key(["control", "mod1"], "p", lazy.spawn("flameshot gui"), desc="Takes a screenshot"),
-    Key([mod], "f", lazy.spawn("librewolf"), desc="Launch LibreWolf"),
-    Key([mod, "shift"], "f", lazy.spawn("librewolf --private-window"), desc="Launch LibreWolf private"),
-    Key([mod], "b", lazy.spawn("brave"), desc="Launch Brave browser"),
-    Key([mod, "shift"], "b", lazy.spawn("brave --incognito"), desc="Launch incognito Brave browser"),
     Key([mod], "a", lazy.spawn("alacritty -e ranger"), desc="Launch ranger"),
 ]
 
@@ -157,14 +152,14 @@ layouts = [
     layout.Columns(border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    #layout.Stack(num_stacks=2),
-    #layout.Bsp(),
-    #layout.Matrix(),
-    #layout.RatioTile(),
-    #layout.Tile(),
-    #layout.TreeTab(),
-    #layout.VerticalTile(),
-    #layout.Zoomy(),
+    layout.Stack(num_stacks=2),
+    layout.Bsp(),
+    layout.Matrix(),
+    layout.RatioTile(),
+    layout.Tile(),
+    layout.TreeTab(),
+    layout.VerticalTile(),
+    layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -176,9 +171,9 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="~/Pictures/wallpaper/KDE-Plasma-Dark-822-HD-WL.jpg",
+        wallpaper="~/Pictures/wallpaper/kde_wp.jpg",
         wallpaper_mode="fill",
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
@@ -192,6 +187,8 @@ screens = [
                 ),
                 #widget.TextBox("bard config", name="default"),
                 #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.Sep(),
+                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
                 widget.Sep(),
                 widget.Battery(foreground="bbbb00", update_interval=30),
@@ -199,7 +196,7 @@ screens = [
                 widget.TextBox("Vol:"),
                 widget.PulseVolume(update_interval=0.2, limit_max_volume=True),
                 widget.Sep(),
-                widget.Clock(format="%H:%M.%S %a %D", foreground="#bbbb00"),
+                widget.Clock(format="%I:%M.%S%p %a %D", foreground="#bbbb00"),
                 widget.Sep(),
                 widget.QuickExit(foreground="#aa11aa"),
             ],
