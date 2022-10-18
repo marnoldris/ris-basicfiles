@@ -46,7 +46,7 @@ install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
 install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
 install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
-install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
+install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/wallpaper/
 
 # make sure everything is executable
 echo "Making necessary files executable..."
