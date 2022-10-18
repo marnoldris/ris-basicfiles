@@ -37,20 +37,14 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/wallpaper
 
 # install files
-# maybe .zshrc .vimrc autostart.sh picom.conf config.py and kde_wp.jpg should be owned by root?
+# chattr is used to make these files immutable after installing them
 echo "Installing files..."
-#install -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
-#install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
-#install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
-#install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
-#install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
-#install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
-cp -v .zshrc.student /home/$USERNAME/.zshrc
-cp -v .vimrc /home/$USERNAME/.vimrc
-cp -v autostart.sh /home/$USERNAME/.config/qtile/
-cp -v picom.conf /home/$USERNAME/.config/picom/
-cp -v config.py /home/$USERNAME/.config/qtile/
-cp -v kde_wp.jpg /home/$USERNAME/Pictures/wallpaper/
+install -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
+install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
+install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
+install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
+install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
+install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/
 
 # make sure everything is executable
 echo "Making necessary files executable..."
