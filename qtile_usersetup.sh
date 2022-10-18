@@ -54,17 +54,17 @@ echo "Making necessary files executable..."
 chmod +x /home/$USERNAME/.config/qtile/autostart.sh
 
 # make the files immutable with chattr +i <file>
-if [[ $SUDOER -ne 1 ]]; then
-    echo "Making necessary files immutable..."
-    chattr +i /home/$USERNAME/.zshrc
-    chattr +i /home/$USERNAME/.vimrc
-    chattr +i /home/$USERNAME/.config/qtile/autostart.sh
-    chattr +i /home/$USERNAME/.config/picom/picom.conf
-    chattr +i /home/$USERNAME/.config/qtile/config.py
-    chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
-fi
+#if [[ "$SUDOER" -ne 1 ]]; then
+    #echo "Making necessary files immutable..."
+    #chattr +i /home/$USERNAME/.zshrc
+    #chattr +i /home/$USERNAME/.vimrc
+    #chattr +i /home/$USERNAME/.config/qtile/autostart.sh
+    #chattr +i /home/$USERNAME/.config/picom/picom.conf
+    #chattr +i /home/$USERNAME/.config/qtile/config.py
+    #chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
+#fi
 
-if [[ $SUDOER -eq 1]]; then
+if [[ "$SUDOER" -eq 1]]; then
     echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/$USERNAME
 fi
 
