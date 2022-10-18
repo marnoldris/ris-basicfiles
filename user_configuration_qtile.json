@@ -161,6 +161,8 @@
         "bat",
 	"tmux",
 	"flameshot",
+	"dmenu",
+	"ranger",
         "broadcom-wl"
     ],
     "profile": {
