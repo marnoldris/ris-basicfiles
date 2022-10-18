@@ -20,7 +20,6 @@ audit
 autoconf
 automake
 avahi
-b43-fwcutter
 base
 base-devel
 bash
