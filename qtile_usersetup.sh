@@ -1,8 +1,8 @@
 #!/bin/bash
 	
 # check that the proper number of arguments are present, otherwise exit the script
-if [[ $# -ne 3 ]]; then
-    echo "Usage: ./qtile_usersetup.sh <username> <password> <default_group>"
+if [[ $# -ne 4 ]]; then
+    echo "Usage: ./qtile_usersetup.sh <username> <password> <default_group> <sudoer 1/0>"
     echo "Exiting..."
     exit 1
 fi
@@ -10,6 +10,7 @@ fi
 USERNAME=$1
 PASSWORD=$2
 GROUP=$3
+SUDOER=$4
 
 # if the user exists, delete them and all of their files
 # the &>/dev/null sends the standard output and error to null to suppress the output of the commands
@@ -53,13 +54,19 @@ echo "Making necessary files executable..."
 chmod +x /home/$USERNAME/.config/qtile/autostart.sh
 
 # make the files immutable with chattr +i <file>
-echo "Making necessary files immutable..."
-chattr +i /home/$USERNAME/.zshrc
-chattr +i /home/$USERNAME/.vimrc
-chattr +i /home/$USERNAME/.config/qtile/autostart.sh
-chattr +i /home/$USERNAME/.config/picom/picom.conf
-chattr +i /home/$USERNAME/.config/qtile/config.py
-chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
+if [[ $SUDOER -ne 1 ]]; then
+    echo "Making necessary files immutable..."
+    chattr +i /home/$USERNAME/.zshrc
+    chattr +i /home/$USERNAME/.vimrc
+    chattr +i /home/$USERNAME/.config/qtile/autostart.sh
+    chattr +i /home/$USERNAME/.config/picom/picom.conf
+    chattr +i /home/$USERNAME/.config/qtile/config.py
+    chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
+fi
+
+if [[ $SUDOER -eq 1]]; then
+    echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/$USERNAME
+fi
 
 # finished!
 echo "Done!"
