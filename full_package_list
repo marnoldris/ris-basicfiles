@@ -64,6 +64,7 @@ device-mapper
 dhclient
 dhcpcd
 diffutils
+dmenu
 dmraid
 dnsmasq
 dnssec-anchors
@@ -452,6 +453,7 @@ python-six
 python-xcffib
 qemu-guest-agent
 qtile
+ranger
 raptor
 rasqal
 rav1e
