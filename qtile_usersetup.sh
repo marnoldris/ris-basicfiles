@@ -64,7 +64,7 @@ chmod +x /home/$USERNAME/.config/qtile/autostart.sh
     #chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
 #fi
 
-if [[ "$SUDOER" -eq 1]]; then
+if [[ "$SUDOER" -eq 1 ]]; then
     echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/$USERNAME
 fi
 
