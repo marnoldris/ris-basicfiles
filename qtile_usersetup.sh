@@ -34,6 +34,7 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/wallpaper
 
 # install files
 # maybe .zshrc .vimrc autostart.sh picom.conf config.py and kde_wp.jpg should be owned by root?
@@ -49,7 +50,7 @@ cp -v .vimrc /home/$USERNAME/.vimrc
 cp -v autostart.sh /home/$USERNAME/.config/qtile/
 cp -v picom.conf /home/$USERNAME/.config/picom/
 cp -v config.py /home/$USERNAME/.config/qtile/
-cp -v kde_wp.jpg /home/$USERNAME/Pictures/
+cp -v kde_wp.jpg /home/$USERNAME/Pictures/wallpaper/
 
 # make sure everything is executable
 echo "Making necessary files executable..."
