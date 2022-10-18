@@ -65,6 +65,7 @@ chmod +x /home/$USERNAME/.config/qtile/autostart.sh
 #fi
 
 if [[ "$SUDOER" -eq 1 ]]; then
+    echo "Adding $USERNAME to sudoers..."
     echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/$USERNAME
 fi
 
