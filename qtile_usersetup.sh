@@ -33,8 +33,10 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Downloads
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
-install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/wallpaper
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures/wallpaper
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Videos
 
 # install files
 # chattr is used to make these files immutable after installing them
