@@ -29,7 +29,6 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-
 # For autostart
 import os
 import subprocess
@@ -41,9 +40,11 @@ def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.run([home])
 
+# change backend on picom to glx
+# End for autostart
 
-mod = "mod4"
-terminal = guess_terminal()
+mod = "mod4"            # mod1 == alt
+terminal = "alacritty"
 
 keys = [
     # A list of available commands that can be bound to keys can be found
@@ -63,10 +64,22 @@ keys = [
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows. If current window is on the edge of screen and direction
     # will be to screen edge - window would shrink.
-    Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
-    Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
-    Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
+    Key([mod, "control"], "h",
+    lazy.layout.grow_left(),
+    lazy.layout.shrink_main().when(layout="monadtall"),
+    desc="Grow window to the left"),
+    Key([mod, "control"], "l",
+    lazy.layout.grow_right(),
+    lazy.layout.grow_main().when(layout="monadtall"),
+    desc="Grow window to the right"),
+    Key([mod, "control"], "j",
+    lazy.layout.grow_down(),
+    lazy.layout.grow_main().when(layout="monadwide"),
+    desc="Grow window down"),
+    Key([mod, "control"], "k",
+    lazy.layout.grow_up(),
+    lazy.layout.shrink_main().when(layout="monadwide"),
+    desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
@@ -86,11 +99,11 @@ keys = [
     Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([mod], "d", lazy.spawn("dmenu_run"), desc="Spawn dmenu_run"),
     Key(["control", "mod1"], "space", lazy.spawn("slock"), desc="Locks the screen"),
-    Key(["control", "mod1"], "p", lazy.spawn("flameshot gui"), desc="Takes a screenshot"),
     
     # Function key binds
-    Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
+    Key([], "XF86Search", lazy.spawn("dmenu_run"), desc="Spawn dmenu_run"),
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 5%-"), desc="Brightness down 5%"),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 5%+"), desc="Brightness up 5%"),
     Key([], "XF86AudioLowerVolume", lazy.widget["pulsevolume"].decrease_vol(), desc="Lower volume"),
@@ -103,6 +116,12 @@ keys = [
     # Custom application key binds
     Key([mod], "c", lazy.spawn("chromium"), desc="Launch Chromium browser"),
     Key([mod, "shift"], "c", lazy.spawn("chromium --incognito"), desc="Launch incognito Chromium"),
+    Key(["control", "mod1"], "p", lazy.spawn("flameshot gui"), desc="Takes a screenshot"),
+    Key([mod], "f", lazy.spawn("librewolf"), desc="Launch LibreWolf"),
+    Key([mod, "shift"], "f", lazy.spawn("librewolf --private-window"), desc="Launch LibreWolf private"),
+    Key([mod], "b", lazy.spawn("brave"), desc="Launch Brave browser"),
+    Key([mod, "shift"], "b", lazy.spawn("brave --incognito"), desc="Launch incognito Brave browser"),
+    Key([mod], "a", lazy.spawn("alacritty -e ranger"), desc="Launch ranger"),
 ]
 
 groups = [Group(i) for i in "123456789"]
@@ -132,19 +151,20 @@ for i in groups:
     )
 
 layouts = [
-    layout.Columns(border_focus=["#aaaa00"], border_width=3, margin=7, insert_position=1),
-    layout.Max(),
-    # Try more layouts by unleashing below layouts.
     layout.MonadTall(ratio=0.6, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
     layout.MonadWide(ratio=0.7, border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
-    layout.Stack(num_stacks=2),
-    layout.Bsp(),
-    layout.Matrix(),
-    layout.RatioTile(),
-    layout.Tile(),
-    layout.TreeTab(),
-    layout.VerticalTile(),
-    layout.Zoomy(),
+    #layout.Columns(border_focus_stack=["#d75f5f", "#8f3d3d"], border_width=2,
+    layout.Columns(border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
+    layout.Max(),
+    # Try more layouts by unleashing below layouts.
+    #layout.Stack(num_stacks=2),
+    #layout.Bsp(),
+    #layout.Matrix(),
+    #layout.RatioTile(),
+    #layout.Tile(),
+    #layout.TreeTab(),
+    #layout.VerticalTile(),
+    #layout.Zoomy(),
 ]
 
 widget_defaults = dict(
@@ -156,9 +176,9 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        wallpaper="~/Pictures/kde_wp.jpg",
+        wallpaper="~/Pictures/wallpaper/KDE-Plasma-Dark-822-HD-WL.jpg",
         wallpaper_mode="fill",
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayoutIcon(),
                 widget.GroupBox(),
@@ -170,15 +190,17 @@ screens = [
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                #widget.TextBox("bard config", name="default"),
+                #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.Systray(),
                 widget.Sep(),
-                widget.Battery(foreground="bbbb00"),
+                widget.Battery(foreground="bbbb00", update_interval=30),
                 widget.Sep(),
                 widget.TextBox("Vol:"),
                 widget.PulseVolume(update_interval=0.2, limit_max_volume=True),
                 widget.Sep(),
-                widget.Systray(),
-                widget.Clock(format="%I:%M.%S%p %a %D", foreground="#bbbb00"),
+                widget.Clock(format="%H:%M.%S %a %D", foreground="#bbbb00"),
+                widget.Sep(),
                 widget.QuickExit(foreground="#aa11aa"),
             ],
             24,
