@@ -56,7 +56,7 @@ filetype plugin on
 "set t_Co=256		" set 8 colors
 "set t_Sb=[4%dm	" set background color
 "set t_Sf=[3%dm	" set foreground oolor
-colo elflord 		" or default (earthy tones), elflord (browns, blues, pinks), evening (like default but with yellow), industry 
+colo slate 		" or default (earthy tones), elflord (browns, blues, pinks), evening (like default but with yellow), industry 
 
 
 " Don't wake up system with blinking cursor:
@@ -72,7 +72,7 @@ set nolist " Show tab characters or not. :set list! will toggle tab characters o
 set lcs=tab:»_,trail:·
 set showcmd
 " proper inverse highlighting
-highlight Visual cterm=reverse ctermbg=NONE 
+"highlight Visual cterm=reverse ctermbg=NONE 
 
 " Custom keybinds
 nnoremap <CR> i<CR><Esc>
