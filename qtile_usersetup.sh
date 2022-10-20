@@ -49,9 +49,10 @@ install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
 install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 #install -v -o $USERNAME -g $GROUP kde_wp.jpg /home/$USERNAME/Pictures/wallpaper/
 #TODO add a for loop that iterates through $(ls path/to/wallpaper) and installs each wallpaper
-for wallpaper in $('ls' ./wallpaper/); do
-    install -v -o $USERNAME -g $GROUP $wallpaper /home/$USERNAME/Pictures/wallpaper/
-done
+#for wallpaper in $('ls' ./wallpaper/); do
+#    install -v -o $USERNAME -g $GROUP $wallpaper /home/$USERNAME/Pictures/wallpaper/
+#done
+install -v -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
 
 
 # make sure everything is executable
