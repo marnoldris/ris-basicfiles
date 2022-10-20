@@ -186,7 +186,7 @@ random_wallpaper = random.choice(wallpapers)
 
 screens = [
     Screen(
-        wallpaper="~/Pictures/wallpaper/kde_wp.jpg",
+        wallpaper=f"~/Pictures/wallpaper/{random_wallpaper}",
         wallpaper_mode="fill",
         bottom=bar.Bar(
             [
