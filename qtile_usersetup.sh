@@ -19,6 +19,12 @@ if id "$USERNAME" &>/dev/null; then
     userdel -rf $USERNAME &>/dev/null
 fi
 
+# remove the sudoer from /etc/sudoers.d/
+if [[ -f "/etc/sudoers.d/$USERNAME" ]]; then
+    echo "Removing $USERNAME from sudoers."
+    rm /etc/sudoers.d/$USERNAME
+fi
+
 # make the user account, setting the default group and shell
 groupadd $GROUP &>/dev/null
 echo "Creating user $USERNAME..."
