@@ -3,7 +3,7 @@
 # check that the proper number of arguments are present, otherwise exit the script
 if [[ $# -ne 4 ]]; then
     echo "Usage: ./qtile_usersetup.sh <username> <password> <default_group> <sudoer 1/0>"
-    echo "Exiting..."
+    echo -e "Exiting..."
     exit 1
 fi
 
@@ -15,27 +15,27 @@ SUDOER=$4
 # if the user exists, delete them and all of their files
 # the &>/dev/null sends the standard output and error to null to suppress the output of the commands
 if id "$USERNAME" &>/dev/null; then
-    echo "User name matches existing user; deleting user account to start fresh..."
+    echo -e "User name matches existing user; deleting user account to start fresh..."
     userdel -rf $USERNAME &>/dev/null
 fi
 
 # remove the sudoer from /etc/sudoers.d/
 if [[ -f "/etc/sudoers.d/$USERNAME" ]]; then
-    echo "Removing $USERNAME from sudoers."
+    echo -e "\nRemoving $USERNAME from sudoers."
     rm /etc/sudoers.d/$USERNAME
 fi
 
 # make the user account, setting the default group and shell
 groupadd $GROUP &>/dev/null
-echo "Creating user $USERNAME..."
+echo -e "\nCreating user $USERNAME..."
 useradd -m -g $GROUP -s $(which zsh) $USERNAME
 
 # set user password
-echo "Setting $USERNAME's password..."
+echo -e "\nSetting $USERNAME's password..."
 echo $USERNAME:$PASSWORD | chpasswd
 
 # make directories for the user
-echo "Making directories for $USERNAME..."
+echo -e "\nMaking directories for $USERNAME..."
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
@@ -47,7 +47,7 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Videos
 
 # install files
 # chattr is used to make these files immutable after installing them
-echo "Installing files..."
+echo -e "\nInstalling files..."
 install -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
 install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
@@ -62,12 +62,12 @@ install -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wall
 
 
 # make sure everything is executable
-echo "Making necessary files executable..."
+echo -e "\nMaking necessary files executable..."
 chmod +x /home/$USERNAME/.config/qtile/autostart.sh
 
 # make the files immutable with chattr +i <file>
 #if [[ "$SUDOER" -ne 1 ]]; then
-    #echo "Making necessary files immutable..."
+    #echo -e "Making necessary files immutable..."
     #chattr +i /home/$USERNAME/.zshrc
     #chattr +i /home/$USERNAME/.vimrc
     #chattr +i /home/$USERNAME/.config/qtile/autostart.sh
@@ -77,9 +77,9 @@ chmod +x /home/$USERNAME/.config/qtile/autostart.sh
 #fi
 
 if [[ $SUDOER -eq 1 ]]; then
-    echo "Adding $USERNAME to sudoers..."
+    echo -e "\nAdding $USERNAME to sudoers..."
     echo "$USERNAME ALL=(ALL) ALL" > /etc/sudoers.d/$USERNAME
 fi
 
 # finished!
-echo "Done!"
+echo -e "\nDone!"
