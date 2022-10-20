@@ -52,7 +52,7 @@ install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 #for wallpaper in $('ls' ./wallpaper/); do
 #    install -v -o $USERNAME -g $GROUP $wallpaper /home/$USERNAME/Pictures/wallpaper/
 #done
-install -v -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
+install -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
 
 
 # make sure everything is executable
