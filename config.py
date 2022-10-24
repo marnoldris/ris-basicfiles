@@ -158,14 +158,14 @@ layouts = [
     layout.Columns(border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
-    layout.Stack(num_stacks=2),
-    layout.Bsp(),
-    layout.Matrix(),
-    layout.RatioTile(),
-    layout.Tile(),
-    layout.TreeTab(),
-    layout.VerticalTile(),
-    layout.Zoomy(),
+    #layout.Stack(num_stacks=2),
+    #layout.Bsp(),
+    layout.Matrix(border_focus="#aaaa00", border_width=2, margin=7, insert_position=1),
+    #layout.RatioTile(),
+    #layout.Tile(),
+    #layout.TreeTab(),
+    #layout.VerticalTile(),
+    #layout.Zoomy(),
 ]
 
 widget_defaults = dict(
