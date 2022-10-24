@@ -1,0 +1,10 @@
+[Unit]
+Description=Sets the function mode to 2 for Macbook Pro computers
+After=multi-user.target
+
+[Service]
+ExecStart=/bin/bash -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"
+Type=simple
+
+[Install]
+WantedBy=multi-user.target
