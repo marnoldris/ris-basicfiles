@@ -28,8 +28,8 @@ echo -e "\nAttempting to start reflector.timer..."
 systemctl start reflector.timer
 
 # make files executable
-echo -e "\nMaking qtile_usersetup.sh and ./kde_usersetup.sh executable..."
-chmod +x ./qtile_usersetup.sh ./kde_usersetup.sh
+#echo -e "\nMaking qtile_usersetup.sh and ./kde_usersetup.sh executable..."
+#chmod +x ./qtile_usersetup.sh ./kde_usersetup.sh
 
 # tweak /etc/pacman.conf
 echo -e "\nTweaking /etc/pacman.conf..."

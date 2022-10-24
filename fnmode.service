@@ -4,7 +4,7 @@ After=multi-user.target
 
 [Service]
 ExecStart=/bin/bash -c "echo 2 > /sys/module/hid_apple/parameters/fnmode"
-Type=simple
+Type=oneshot
 
 [Install]
 WantedBy=multi-user.target
