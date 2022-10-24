@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for user in $(awk -F':' '{print $1}' /etc/passwd); do
+for user in $(/usr/bin/ls /home/); do
     group=$(groups $user)
     echo -e "\n Checking for wallpaper directory..."
     if [[ ! -d /home/$user/Pictures/wallpaper ]]; then
