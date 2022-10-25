@@ -3,7 +3,7 @@
 is_apple=false
 
 # Check if the computer is an Apple computer
-if [[ $(hostnamectl | grep "Hardware Vendor" | awk '{print $3}') == "Apple" ]]; then
+if [[ $(hostnamectl | grep "Hardware Vendor" | awk '{print $3}') = Apple ]]; then
     is_apple=true
 fi
 
@@ -17,7 +17,7 @@ cp -v .zshrc.root ~/.zshrc
 cp -v .vimrc ~/.vimrc
 
 #if [[ -e /sys/module/hid_apple ]]; then
-if [[ is_apple ]]; then
+if [[ "$is_apple" = true ]]; then
     echo -e "\nApple computer detected, adding fnmode service..."
     cp -v fnmode.service /etc/systemd/system/
 fi
@@ -27,7 +27,7 @@ echo -e "\nEnabling extra system services..."
 systemctl enable cronie.service sshd.service reflector.service reflector.timer
 
 #if [[ -e /sys/module/hid_apple ]]; then
-if [[ is_apple ]]; then
+if [[ "$is_apple" = true ]]; then
     echo -e "\nEnabling fnmode.service..."
     systemctl enable fnmode.service
 fi
