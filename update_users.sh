@@ -16,3 +16,6 @@ for user in $(/usr/bin/ls /home/); do
     install -C -v -o $user -g $group .zshrc.student /home/$user/.zshrc
     install -C -v -o $user -g $group .vimrc /home/$user/.vimrc
 done
+
+# Done!
+echo -e "Done!"
