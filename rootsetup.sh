@@ -15,8 +15,9 @@ chsh -s $(which zsh)
 echo -e "\nCopying essential files..."
 cp -v .zshrc.root ~/.zshrc
 cp -v .vimrc ~/.vimrc
-#if is_apple
-if [[ -e /sys/module/hid_apple ]]; then
+
+#if [[ -e /sys/module/hid_apple ]]; then
+if [[ is_apple ]]; then
     echo -e "\nApple computer detected, adding fnmode service..."
     cp -v fnmode.service /etc/systemd/system/
 fi
@@ -24,8 +25,9 @@ fi
 # enable system services
 echo -e "\nEnabling extra system services..."
 systemctl enable cronie.service sshd.service reflector.service reflector.timer
-#if is_apple
-if [[ -e /sys/module/hid_apple ]]; then
+
+#if [[ -e /sys/module/hid_apple ]]; then
+if [[ is_apple ]]; then
     echo -e "\nEnabling fnmode.service..."
     systemctl enable fnmode.service
 fi
