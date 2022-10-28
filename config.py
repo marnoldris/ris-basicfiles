@@ -116,7 +116,9 @@ keys = [
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous"), desc="Previous track"),
     
     # Switch between screens
-    Key([mod], "q", lazy.next_screen(), desc=""),
+    Key([mod], "e", lazy.next_screen(), desc="Cycle focus between connected screens"),
+    # Switch to previous group
+    Key([mod], "q", lazy.screen.toggle_group()),
 
     # Custom application key binds
     Key([mod], "c", lazy.spawn("chromium"), desc="Launch Chromium browser"),
