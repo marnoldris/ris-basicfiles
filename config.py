@@ -125,6 +125,7 @@ keys = [
     Key([mod, "shift"], "c", lazy.spawn("chromium --incognito"), desc="Launch incognito Chromium"),
     Key([mod], "p", lazy.spawn("flameshot gui"), desc="Takes a screenshot"),
     Key([mod], "a", lazy.spawn("alacritty -e ranger"), desc="Launch ranger"),
+    Key([mod], "d", lazy.spawn("dolphin"), desc="Launch Dolphin"),
 ]
 
 groups = [Group(i) for i in "123456789"]

@@ -163,6 +163,7 @@
 	"flameshot",
 	"dmenu",
 	"ranger",
+	"dolphin",
         "broadcom-wl"
     ],
     "profile": {
