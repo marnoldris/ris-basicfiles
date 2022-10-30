@@ -131,7 +131,7 @@
     "offline": false,
     "packages": [
         "vi",
-        "vim",
+        "gvim",
         "sudo",
         "reflector",
         "exa",

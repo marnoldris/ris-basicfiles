@@ -519,7 +519,7 @@ util-linux-libs
 v4l-utils
 vi
 vid.stab
-vim
+gvim
 vim-runtime
 virtualbox-guest-utils-nox
 vmaf
