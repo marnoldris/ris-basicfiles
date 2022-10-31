@@ -103,6 +103,11 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod, "control"], "space", lazy.spawn("slock"), desc="Locks the screen"),
+    Key([mod, "control"], 
+        "f", 
+        lazy.window.toggle_floating(), 
+        desc="Toggle floating for the selected window",
+    ),
     
     # Function key binds
     Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
@@ -118,7 +123,7 @@ keys = [
     # Switch between screens
     Key([mod], "e", lazy.next_screen(), desc="Cycle focus between connected screens"),
     # Switch to previous group
-    Key([mod], "q", lazy.screen.toggle_group()),
+    Key([mod], "q", lazy.screen.toggle_group(), desc="Switch to previous group"),
 
     # Custom application key binds
     Key([mod], "c", lazy.spawn("chromium"), desc="Launch Chromium browser"),
