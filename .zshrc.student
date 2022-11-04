@@ -61,4 +61,3 @@ alias klogout="qdbus org.kde.ksmserver /KSMServer logout 0 0 0"
 alias battery='echo "$(cat /sys/class/power_supply/BAT0/capacity)%"'
 alias cp="cp -v"
 alias mv="mv -v"
-alias vim="vim -y"
