@@ -46,6 +46,9 @@ sed -i 's/#Color/Color/' /etc/pacman.conf
 sed -i 's/#VerbosePkgLists/VerbosePkgLists/' /etc/pacman.conf
 sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
+# disable mouse acceleration
+echo -e "\nDisabling Mouse Acceleration..."
+cp -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
 
 # finished!
 echo -e "\nDone!"
