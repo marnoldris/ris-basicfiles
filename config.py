@@ -219,7 +219,7 @@ screens = [
                 widget.TextBox("Vol:"),
                 widget.PulseVolume(update_interval=0.2, limit_max_volume=True),
                 widget.Sep(),
-                widget.Clock(format="%I:%M.%S%p %a %D", foreground="#bbbb00"),
+                widget.Clock(format="%I:%M.%S%p %a %D ", foreground="#bbbb00"),
             ],
             24,
             margin=3,
