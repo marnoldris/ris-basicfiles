@@ -15,6 +15,8 @@ chsh -s $(which zsh)
 echo -e "\nCopying essential files..."
 cp -v .zshrc.root ~/.zshrc
 cp -v .vimrc ~/.vimrc
+mkdir -p ~/.config/micro
+cp -v settings.json ~/.config/micro/
 
 #if [[ -e /sys/module/hid_apple ]]; then
 if [[ "$is_apple" = true ]]; then

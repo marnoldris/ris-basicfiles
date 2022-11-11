@@ -39,6 +39,7 @@ echo -e "\nMaking directories for $USERNAME..."
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/micro
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Downloads
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
@@ -53,6 +54,7 @@ install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
 install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
 install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
+install -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/
 install -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
 
 
