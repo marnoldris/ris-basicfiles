@@ -1,7 +1,18 @@
 #!/bin/bash
 
 for user in $(/usr/bin/ls /home/); do
-    group=$(groups $user)
+
+    echo -e "\nFinding group for user..."
+    group=""
+    if [[ $(groups $user | grep "student") ]]; then
+        group="student"
+    elif [[ $(groups $user | grep "teacher") ]]; then
+        group="teacher"
+    else
+        group=$user
+    fi
+    echo -e "\n $user is in $group"
+
     echo -e "\n Checking for wallpaper directory..."
     if [[ ! -d /home/$user/Pictures/wallpaper ]]; then
         echo -e "\nwallpaper directory not found; making it..."
