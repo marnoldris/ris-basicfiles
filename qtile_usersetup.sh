@@ -48,7 +48,6 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures/wallpaper
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Videos
 
 # install files
-# chattr is used to make these files immutable after installing them
 echo -e "\nInstalling files..."
 install -m 644 -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
 install -m 644 -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
@@ -57,22 +56,6 @@ install -m 644 -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/pico
 install -m 644 -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 install -m 644 -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/
 install -m 644 -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
-
-
-# make sure everything is executable
-echo -e "\nMaking necessary files executable..."
-chmod +x /home/$USERNAME/.config/qtile/autostart.sh
-
-# make the files immutable with chattr +i <file>
-#if [[ "$SUDOER" -ne 1 ]]; then
-    #echo -e "Making necessary files immutable..."
-    #chattr +i /home/$USERNAME/.zshrc
-    #chattr +i /home/$USERNAME/.vimrc
-    #chattr +i /home/$USERNAME/.config/qtile/autostart.sh
-    #chattr +i /home/$USERNAME/.config/picom/picom.conf
-    #chattr +i /home/$USERNAME/.config/qtile/config.py
-    #chattr +i /home/$USERNAME/Pictures/wallpaper/kde_wp.jpg
-#fi
 
 if [[ $SUDOER -eq 1 ]]; then
     echo -e "\nAdding $USERNAME to sudoers..."
