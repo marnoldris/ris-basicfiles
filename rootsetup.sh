@@ -13,10 +13,10 @@ chsh -s $(which zsh)
 
 # copy in files
 echo -e "\nCopying essential files..."
-install -C -v .zshrc.root ~/.zshrc
-install -C -v .vimrc ~/.vimrc
+install -m 644 -C -v .zshrc.root ~/.zshrc
+install -m 644 -C -v .vimrc ~/.vimrc
 mkdir -p ~/.config/micro
-install -C -v settings.json ~/.config/micro/
+install -m 644 -C -v settings.json ~/.config/micro/
 
 #if [[ -e /sys/module/hid_apple ]]; then
 if [[ "$is_apple" = true ]]; then
@@ -50,7 +50,7 @@ sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # disable mouse acceleration
 echo -e "\nDisabling Mouse Acceleration..."
-install -C -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
+install -m 644 -C -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
 
 # finished!
 echo -e "\nDone!"
