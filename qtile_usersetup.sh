@@ -52,7 +52,7 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Videos
 echo -e "\nInstalling files..."
 install -m 644 -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
 install -m 644 -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
-install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
+install -m 755 -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
 install -m 644 -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
 install -m 644 -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 install -m 644 -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/

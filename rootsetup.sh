@@ -21,7 +21,7 @@ install -m 644 -C -v settings.json ~/.config/micro/
 #if [[ -e /sys/module/hid_apple ]]; then
 if [[ "$is_apple" = true ]]; then
     echo -e "\nApple computer detected, adding fnmode service..."
-    install -C -v fnmode.service /etc/systemd/system/
+    install -m 644 -C -v -o root -g root fnmode.service /etc/systemd/system/
 fi
 
 # enable system services
@@ -50,7 +50,7 @@ sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # disable mouse acceleration
 echo -e "\nDisabling Mouse Acceleration..."
-install -m 644 -C -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
+install -m 644 -C -v -o root -g root 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
 
 # finished!
 echo -e "\nDone!"

@@ -29,7 +29,7 @@ for user in $(/usr/bin/ls /home/); do
 
     echo -e "\n Updating files for $user..."
     install -m 644 -C -v -o $user -g $group config.py /home/$user/.config/qtile/
-    install -C -v -o $user -g $group autostart.sh /home/$user/.config/qtile/
+    install -m 755 -C -v -o $user -g $group autostart.sh /home/$user/.config/qtile/
     install -m 644 -C -v -o $user -g $group picom.conf /home/$user/.config/picom/
     install -m 644 -C -v -o $user -g $group settings.json /home/$user/.config/micro/
     install -m 644 -C -v -o $user -g $group ./wallpaper/* /home/$user/Pictures/wallpaper/
