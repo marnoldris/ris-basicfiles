@@ -27,8 +27,9 @@ fi
 
 # make the user account, setting the default group and shell
 groupadd $GROUP &>/dev/null
+groupadd $USERNAME &>/dev/null
 echo -e "\nCreating user $USERNAME..."
-useradd -m -g $GROUP -s $(which zsh) $USERNAME
+useradd -m -g $GROUP -G $USERNAME -s $(which zsh) $USERNAME
 
 # set user password
 echo -e "\nSetting $USERNAME's password..."
