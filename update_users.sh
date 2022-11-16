@@ -19,6 +19,14 @@ for user in $(/usr/bin/ls /home/); do
         install -v -C -o $user -g $group -d /home/$user/Pictures
         install -v -C -o $user -g $group -d /home/$user/Pictures/wallpaper
     fi
+
+    echo -e "\n Checking for ~/.config/micro directory..."
+    if [[ ! -d /home/$user/.config/micro ]]; then
+        echo -e "\nmicro directory not found; making it..."
+        install -v -C -o $user -g $group -d /home/$user/.config
+        install -v -C -o $user -g $group -d /home/$user/.config/micro
+    fi
+
     echo -e "\n Updating files for $user..."
     install -C -v -o $user -g $group config.py /home/$user/.config/qtile/
     install -C -v -o $user -g $group autostart.sh /home/$user/.config/qtile/
