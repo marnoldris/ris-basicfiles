@@ -13,15 +13,15 @@ chsh -s $(which zsh)
 
 # copy in files
 echo -e "\nCopying essential files..."
-cp -v .zshrc.root ~/.zshrc
-cp -v .vimrc ~/.vimrc
+install -C -v .zshrc.root ~/.zshrc
+install -C -v .vimrc ~/.vimrc
 mkdir -p ~/.config/micro
-cp -v settings.json ~/.config/micro/
+install -C -v settings.json ~/.config/micro/
 
 #if [[ -e /sys/module/hid_apple ]]; then
 if [[ "$is_apple" = true ]]; then
     echo -e "\nApple computer detected, adding fnmode service..."
-    cp -v fnmode.service /etc/systemd/system/
+    install -C -v fnmode.service /etc/systemd/system/
 fi
 
 # enable system services
@@ -50,7 +50,7 @@ sed -i 's/#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
 
 # disable mouse acceleration
 echo -e "\nDisabling Mouse Acceleration..."
-cp -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
+install -C -v 50-mouse-acceleration.conf /etc/X11/xorg.conf.d/
 
 # finished!
 echo -e "\nDone!"
