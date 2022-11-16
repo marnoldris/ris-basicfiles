@@ -102,7 +102,7 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key([mod, "control"], "space", lazy.spawn("slock"), desc="Locks the screen"),
-    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating for the selected window",),
+    Key([mod], "f", lazy.window.toggle_floating(), desc="Toggle floating for the selected window"),
     
     # Function key binds
     Key([], "XF86Search", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
