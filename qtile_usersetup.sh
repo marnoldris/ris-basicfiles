@@ -50,13 +50,13 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Videos
 # install files
 # chattr is used to make these files immutable after installing them
 echo -e "\nInstalling files..."
-install -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
-install -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
+install -m 644 -v -o $USERNAME -g $GROUP .zshrc.student /home/$USERNAME/.zshrc
+install -m 644 -v -o $USERNAME -g $GROUP .vimrc /home/$USERNAME/.vimrc
 install -v -o $USERNAME -g $GROUP autostart.sh /home/$USERNAME/.config/qtile/
-install -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
-install -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
-install -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/
-install -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
+install -m 644 -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/picom/
+install -m 644 -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
+install -m 644 -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/
+install -m 644 -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
 
 
 # make sure everything is executable

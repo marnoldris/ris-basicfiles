@@ -28,13 +28,13 @@ for user in $(/usr/bin/ls /home/); do
     fi
 
     echo -e "\n Updating files for $user..."
-    install -C -v -o $user -g $group config.py /home/$user/.config/qtile/
+    install -m 644 -C -v -o $user -g $group config.py /home/$user/.config/qtile/
     install -C -v -o $user -g $group autostart.sh /home/$user/.config/qtile/
-    install -C -v -o $user -g $group picom.conf /home/$user/.config/picom/
-    install -C -v -o $user -g $group settings.json /home/$user/.config/micro/
-    install -C -v -o $user -g $group ./wallpaper/* /home/$user/Pictures/wallpaper/
-    install -C -v -o $user -g $group .zshrc.student /home/$user/.zshrc
-    install -C -v -o $user -g $group .vimrc /home/$user/.vimrc
+    install -m 644 -C -v -o $user -g $group picom.conf /home/$user/.config/picom/
+    install -m 644 -C -v -o $user -g $group settings.json /home/$user/.config/micro/
+    install -m 644 -C -v -o $user -g $group ./wallpaper/* /home/$user/Pictures/wallpaper/
+    install -m 644 -C -v -o $user -g $group .zshrc.student /home/$user/.zshrc
+    install -m 644 -C -v -o $user -g $group .vimrc /home/$user/.vimrc
 done
 
 # Done!

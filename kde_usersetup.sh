@@ -47,25 +47,25 @@ cp -v rs_otter.png /usr/share/rs_otter.png
 
 # change kde settings
 echo "Installing KDE settings..."
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
 echo -e '[Containments][2][Applets][3][Configuration][General]\nicon=/usr/share/rs_otter.png' >> /home/$USERNAME/.config/plasma-org.kde.plasma.desktop-appletsrc
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/dolphinrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/dolphinrc
 echo -e '[General]\nRememberOpenedTabs=false' >> /home/$USERNAME/.config/dolphinrc
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kcminputrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kcminputrc
 echo -e '[Mouse]\nX11LibInputXAccelProfileFlat=false\nXLbInptAccelProfileFlat=true' >> /home/$USERNAME/.config/kcminputrc
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kdeglobals
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kdeglobals
 echo -e '[KDE]\nSingleClick=false' >> /home/$USERNAME/.config/kdeglobals
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kglobalshortcutsrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/kglobalshortcutsrc
 echo -e '[Alacritty.desktop]\nNew=none,none,New Terminal\n_k_friendly_name=Alacritty\n_launch=Meta+Return,none,Alacritty' >> /home/$USERNAME/.config/kglobalshortcutsrc
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/ksmserverrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/ksmserverrc
 echo -e '[General]\nconfirmLogout=false\nloginMode=emptySession\nofferShutdown=false' >> /home/$USERNAME/.config/ksmserverrc
 
-install -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/powermanagementprofilesrc
+install -m 644 -v -C -o $USERNAME -g $GROUP /dev/null /home/$USERNAME/.config/powermanagementprofilesrc
 echo -e '[AC][SuspendSession]\nidleTime=1800000\nsuspendThenHibernate=false\nsuspendType=1' >> /home/$USERNAME/.config/powermanagementprofilesrc
 
 
