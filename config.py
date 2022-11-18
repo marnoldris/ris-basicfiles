@@ -208,6 +208,7 @@ screens = [
                 #widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Sep(),
                 widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
+                widget.Sep(),
                 widget.Systray(),
                 widget.Sep(),
                 widget.Battery(foreground="bbbb00", update_interval=30),
