@@ -75,7 +75,7 @@ set showcmd
 "highlight Visual cterm=reverse ctermbg=NONE 
 
 " Custom keybinds
-nnoremap <F4> :!chmod +x %<CR>
+nnoremap <F4> :w<CR>:!chmod +x %<CR>
 nnoremap <F5> :!./%<CR>
 nnoremap <CR> i<CR><Esc>
 nnoremap <Tab> i<Tab><Esc>l
@@ -129,7 +129,7 @@ au BufNewFile,BufRead *.py
 	\ | setlocal list
 	\ | setlocal lcs=lead:·
 	\ | setlocal colorcolumn=79
-	\ | nnoremap <F5> :!python %<CR>
+	"\ | nnoremap <F5> :!python %<CR>
 	"\ | nnoremap <F5> :w<CR>:!python %<CR>
 
 " ---- end Python ----
