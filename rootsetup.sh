@@ -24,7 +24,7 @@ systemctl enable cronie.service sshd.service reflector.service reflector.timer
 
 if [[ "$is_apple" = true ]]; then
     echo -e "\nApple computer detected, adding /etc/modprobe.d/hid_apple.conf to set fnmode..."
-    echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple
+    echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple.conf
     echo -e "\nRebuilding initramfs..."
     mkinitcpio -P
 fi
