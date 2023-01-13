@@ -18,20 +18,15 @@ install -m 644 -C -v .vimrc ~/.vimrc
 mkdir -p ~/.config/micro
 install -m 644 -C -v settings.json ~/.config/micro/
 
-#if [[ -e /sys/module/hid_apple ]]; then
-if [[ "$is_apple" = true ]]; then
-    echo -e "\nApple computer detected, adding fnmode service..."
-    install -m 644 -C -v -o root -g root fnmode.service /etc/systemd/system/
-fi
-
 # enable system services
 echo -e "\nEnabling extra system services..."
 systemctl enable cronie.service sshd.service reflector.service reflector.timer
 
-#if [[ -e /sys/module/hid_apple ]]; then
 if [[ "$is_apple" = true ]]; then
-    echo -e "\nEnabling fnmode.service..."
-    systemctl enable fnmode.service
+    echo -e "\nApple computer detected, adding /etc/modprobe.d/hid_apple.conf to set fnmode..."
+    echo "options hid_apple fnmode=2" > /etc/modprobe.d/hid_apple
+    echo -e "\nRebuilding initramfs..."
+    mkinitcpio -P
 fi
 
 # start system services
