@@ -159,11 +159,12 @@
         "libreoffice-fresh",
         "imagemagick",
         "bat",
-	"tmux",
-	"flameshot",
-	"dmenu",
-	"ranger",
-	"dolphin",
+		"python",
+		"tmux",
+		"flameshot",
+		"dmenu",
+		"ranger",
+		"dolphin",
         "broadcom-wl"
     ],
     "profile": {
