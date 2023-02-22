@@ -26,6 +26,12 @@ for user in $(/usr/bin/ls /home/); do
         install -v -C -o $user -g $group -d /home/$user/.config
         install -v -C -o $user -g $group -d /home/$user/.config/micro
     fi
+    
+    echo -e "\n Checking for ~/.idlerc directory..."
+    if [[ ! -d /home/$user/.idlerc ]]; then
+        echo -e "\n.idlerc directory not found; making it..."
+        install -v -C -o $user -g $group -d /home/$user/.idlerc
+    fi
 
     echo -e "\n Updating files for $user..."
     install -m 644 -C -v -o $user -g $group config.py /home/$user/.config/qtile/
@@ -35,6 +41,8 @@ for user in $(/usr/bin/ls /home/); do
     install -m 644 -C -v -o $user -g $group ./wallpaper/* /home/$user/Pictures/wallpaper/
     install -m 644 -C -v -o $user -g $group .zshrc.student /home/$user/.zshrc
     install -m 644 -C -v -o $user -g $group .vimrc /home/$user/.vimrc
+    install -m 644 -C -v -o $user -g $group config-highlight.cfg /home/$user/.idlerc/
+    install -m 644 -C -v -o $user -g $group config-main.cfg /home/$user/.idlerc/
 done
 
 # Done!

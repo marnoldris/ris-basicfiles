@@ -17,6 +17,10 @@ install -m 644 -C -v .zshrc.root ~/.zshrc
 install -m 644 -C -v .vimrc ~/.vimrc
 mkdir -p ~/.config/micro
 install -m 644 -C -v settings.json ~/.config/micro/
+mkdir -p ~/.idlerc
+install -m 644 -C -v config-highlight.cfg ~/.idlerc/
+install -m 644 -C -v config-main.cfg ~/.idlerc/
+
 
 # enable system services
 echo -e "\nEnabling extra system services..."
