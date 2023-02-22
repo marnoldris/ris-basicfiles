@@ -57,8 +57,8 @@ install -m 644 -v -o $USERNAME -g $GROUP picom.conf /home/$USERNAME/.config/pico
 install -m 644 -v -o $USERNAME -g $GROUP config.py /home/$USERNAME/.config/qtile/
 install -m 644 -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/micro/
 install -m 644 -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
-install -m 644 -v -o $USERNAME -g $GROUP config-highlight.cfg /home/$USERNAME/.idlerc/
-install -m 644 -v -o $USERNAME -g $GROUP config-main.cfg /home/$USERNAME/.idlerc/
+install -m 644 -v -o $USERNAME -g $GROUP dot.idlerc/config-highlight.cfg /home/$USERNAME/.idlerc/
+install -m 644 -v -o $USERNAME -g $GROUP dot.idlerc/config-main.cfg /home/$USERNAME/.idlerc/
 
 if [[ $SUDOER -eq 1 ]]; then
     echo -e "\nAdding $USERNAME to sudoers..."

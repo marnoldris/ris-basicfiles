@@ -41,8 +41,8 @@ for user in $(/usr/bin/ls /home/); do
     install -m 644 -C -v -o $user -g $group ./wallpaper/* /home/$user/Pictures/wallpaper/
     install -m 644 -C -v -o $user -g $group .zshrc.student /home/$user/.zshrc
     install -m 644 -C -v -o $user -g $group .vimrc /home/$user/.vimrc
-    install -m 644 -C -v -o $user -g $group config-highlight.cfg /home/$user/.idlerc/
-    install -m 644 -C -v -o $user -g $group config-main.cfg /home/$user/.idlerc/
+    install -m 644 -C -v -o $user -g $group dot.idlerc/config-highlight.cfg /home/$user/.idlerc/
+    install -m 644 -C -v -o $user -g $group dot.idlerc/config-main.cfg /home/$user/.idlerc/
 done
 
 # Done!
