@@ -110,6 +110,7 @@ map <C-l> <C-W>l
 
 set shiftwidth=2
 
+setlocal tabstop=4
 
 " Folds
 set foldmethod=indent
@@ -129,7 +130,7 @@ au BufNewFile,BufRead *.py
 	\ | setlocal list
 	\ | setlocal lcs=lead:·
 	\ | setlocal colorcolumn=79
-	"\ | nnoremap <F5> :!python %<CR>
+	\ | nnoremap <F5> :!python %<CR>
 	"\ | nnoremap <F5> :w<CR>:!python %<CR>
 
 " ---- end Python ----
