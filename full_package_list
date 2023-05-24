@@ -449,6 +449,7 @@ python
 python-cairocffi
 python-cffi
 python-gobject
+python-pip
 python-ply
 python-pycparser
 python-six
