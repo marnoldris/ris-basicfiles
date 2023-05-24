@@ -394,6 +394,7 @@ nfs-utils
 nilfs-utils
 nmap
 nodejs
+noto-fonts
 npth
 nspr
 nss
@@ -507,6 +508,7 @@ thin-provisioning-tools
 tmux
 tpm2-tss
 tracker3
+ttf-hack
 ttf-liberation
 tzdata
 udftools
