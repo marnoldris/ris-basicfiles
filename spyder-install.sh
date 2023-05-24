@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VENV_DIR=spyder-test-venv
+VENV_DIR=$1
 
 mkdir $VENV_DIR
 python -m venv $VENV_DIR
