@@ -41,6 +41,8 @@ install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/qtile
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/picom
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/micro
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/spyder-py3
+install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/.config/spyder-py3/config
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Documents
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Downloads
 install -v -o $USERNAME -g $GROUP -d /home/$USERNAME/Pictures
@@ -59,6 +61,7 @@ install -m 644 -v -o $USERNAME -g $GROUP settings.json /home/$USERNAME/.config/m
 install -m 644 -v -C -o $USERNAME -g $GROUP ./wallpaper/* /home/$USERNAME/Pictures/wallpaper/
 install -m 644 -v -o $USERNAME -g $GROUP dot.idlerc/config-highlight.cfg /home/$USERNAME/.idlerc/
 install -m 644 -v -o $USERNAME -g $GROUP dot.idlerc/config-main.cfg /home/$USERNAME/.idlerc/
+install -m 644 -v -o $USERNAME -g $GROUP spyder.ini /home/$USERNAME/.config/spyder-py3/config/
 
 if [[ $SUDOER -eq 1 ]]; then
     echo -e "\nAdding $USERNAME to sudoers..."

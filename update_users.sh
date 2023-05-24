@@ -32,6 +32,13 @@ for user in $(/usr/bin/ls /home/); do
         echo -e "\n.idlerc directory not found; making it..."
         install -v -C -o $user -g $group -d /home/$user/.idlerc
     fi
+    
+    echo -e "\n Checking for ~/.config/spyder-py3/config directory..."
+    if [[ ! -d /home/$user/.config/spyder-py3/config ]]; then
+        echo -e "\n.config/spyder-py3/config directory not found; making it..."
+        install -v -C -o $user -g $group -d /home/$user/.config/spyder-py3
+        install -v -C -o $user -g $group -d /home/$user/.config/spyder-py3/config
+    fi
 
     echo -e "\n Updating files for $user..."
     install -m 644 -C -v -o $user -g $group config.py /home/$user/.config/qtile/
@@ -43,6 +50,7 @@ for user in $(/usr/bin/ls /home/); do
     install -m 644 -C -v -o $user -g $group .vimrc /home/$user/.vimrc
     install -m 644 -C -v -o $user -g $group dot.idlerc/config-highlight.cfg /home/$user/.idlerc/
     install -m 644 -C -v -o $user -g $group dot.idlerc/config-main.cfg /home/$user/.idlerc/
+    install -m 644 -C -v -o $user -g $group spyder.ini /home/$user/.config/spyder-py3/config/
 done
 
 # Done!
