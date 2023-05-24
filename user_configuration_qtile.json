@@ -160,6 +160,7 @@
         "imagemagick",
         "bat",
         "python",
+        "python-pip",
         "nemo",
         "tmux",
         "flameshot",
