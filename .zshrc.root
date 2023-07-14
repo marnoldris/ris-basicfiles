@@ -32,6 +32,11 @@ function pasters() {
     curl --data-binary @${file} https://paste.rs
 }
 
+# run tmux at terminal start if tmux isn't already running
+if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
+    exec tmux
+fi
+
 # Aliases
 # Duplicate screen to dual monitor in qtile
 alias dm="killall picom; xrandr --output eDP-1 --mode 1920x1080 && xrandr --output DP-3 --mode 1920x1080 --same-as eDP-1"
