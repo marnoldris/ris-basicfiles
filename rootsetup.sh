@@ -20,6 +20,7 @@ install -m 644 -C -v settings.json ~/.config/micro/
 mkdir -p ~/.idlerc
 install -m 644 -C -v dot.idlerc/config-highlight.cfg ~/.idlerc/
 install -m 644 -C -v dot.idlerc/config-main.cfg ~/.idlerc/
+cp -v .tmux.conf /etc/tmux.conf
 
 
 # enable system services
