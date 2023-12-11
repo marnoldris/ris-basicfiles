@@ -169,7 +169,8 @@
         "dolphin",
         "broadcom-wl",
         "ttf-hack",
-        "noto-fonts"
+        "noto-fonts",
+        "ntp"
     ],
     "profile": {
         "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
