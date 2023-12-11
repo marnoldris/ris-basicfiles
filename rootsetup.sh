@@ -25,7 +25,7 @@ cp -v .tmux.conf /etc/tmux.conf
 
 # enable system services
 echo -e "\nEnabling extra system services..."
-systemctl enable cronie.service sshd.service reflector.service reflector.timer
+systemctl enable cronie.service sshd.service reflector.service reflector.timer ntpd.service
 
 if [[ "$is_apple" = true && $(cat /sys/module/hid_apple/parameters/fnmode) != 2 ]]; then
     echo -e "\nApple computer detected, adding /etc/modprobe.d/hid_apple.conf to set fnmode..."
@@ -36,7 +36,7 @@ fi
 
 # start system services
 echo -e "\nAttempting to start reflector.timer..."
-systemctl start reflector.timer
+systemctl start reflector.timer ntpd.service
 
 # make files executable
 #echo -e "\nMaking qtile_usersetup.sh and ./kde_usersetup.sh executable..."
