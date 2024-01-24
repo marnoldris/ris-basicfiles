@@ -35,7 +35,7 @@ if [[ "$is_apple" = true && $(cat /sys/module/hid_apple/parameters/fnmode) != 2 
 fi
 
 # start system services
-echo -e "\nAttempting to start reflector.timer..."
+echo -e "\nAttempting to start reflector.timer and ntp.service..."
 systemctl start reflector.timer ntpd.service
 
 # make files executable
