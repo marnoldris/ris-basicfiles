@@ -170,7 +170,8 @@
         "broadcom-wl",
         "ttf-hack",
         "noto-fonts",
-        "ntp"
+        "ntp",
+        "firefox"
     ],
     "profile": {
         "path": "/usr/lib/python3.10/site-packages/archinstall/profiles/desktop.py"
