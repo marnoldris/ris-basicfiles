@@ -39,6 +39,7 @@ kate
 okular
 spectacle
 print-manager
+cups
 bluez
 bluez-utils
 packagekit-qt5
