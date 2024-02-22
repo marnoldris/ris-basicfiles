@@ -2,6 +2,7 @@
 
 VENV_DIR=$1
 
+echo "Creating directory $VENV_DIR..."
 mkdir $VENV_DIR
 python -m venv $VENV_DIR --upgrade-deps
 source $VENV_DIR/bin/activate
