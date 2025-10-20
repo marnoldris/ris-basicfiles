@@ -33,25 +33,29 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+ exec swayidle -w \
+        timeout 300 'swaylock -f -c 000000' \
+        timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
+        before-sleep 'swaylock -f -c 000000' \
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
 # resumed. It will also lock your screen before your computer goes to sleep.
 
+set $lock 'swaylock -f -c 000000'
+bindswitch --reload --locked lid:on exec $lock
+#bindswitch --reload --locked lid:on exec "systemctl suspend"
+
 ### Input configuration
 #
 # Example configuration:
 #
-#   input type:touchpad {
-#       dwt enabled
-#       tap enabled
-#       natural_scroll enabled
-#       middle_emulation enabled
-#   }
+   input type:touchpad {
+       dwt disabled
+       tap enabled
+       natural_scroll disabled
+       middle_emulation enabled
+   }
 #
 #   input type:keyboard {
 #       xkb_layout "eu"
