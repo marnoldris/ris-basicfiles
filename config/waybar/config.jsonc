@@ -1,4 +1,6 @@
 // -*- mode: jsonc -*-
+// Font packages: otf-font-awesome ttf-arimo-nerd
+// Additional packages: power-profiles-daemon (and enable it)
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
