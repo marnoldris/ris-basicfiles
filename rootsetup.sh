@@ -16,7 +16,7 @@ echo -e "\nCopying essential files..."
 install -m 644 -C -v .zshrc.root ~/.zshrc
 install -m 644 -C -v .vimrc ~/.vimrc
 mkdir -p ~/.config/micro
-install -m 644 -C -v settings.json ~/.config/micro/
+install -m 644 -C -v config/micro/settings.json ~/.config/micro/
 mkdir -p ~/.idlerc
 install -m 644 -C -v dot.idlerc/config-highlight.cfg ~/.idlerc/
 install -m 644 -C -v dot.idlerc/config-main.cfg ~/.idlerc/
