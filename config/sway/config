@@ -232,6 +232,23 @@ bindsym $mod+r mode "resize"
         #inactive_workspace #32323200 #32323200 #5c5c5c
     #}
 #}
+
+#
+# User additions
+#
+
 bar swaybar_command waybar
+
+# Toggle workspaces back and forth
+bindsym $mod+grave workspace back_and_forth
+
+# Switch to next/prev workspace on current output
+bindsym $mod+n workspace next_on_output
+bindsym $mod+p workspace prev_on_output
+
+# Switch to next/prev workspace on all outputs
+bindsym $mod+Shift+n workspace next
+bindsym $mod+Shift+p workspace prev
+
 
 include /etc/sway/config.d/*
