@@ -243,7 +243,7 @@ bindsym $mod+r mode "resize"
 bar swaybar_command waybar
 
 # Toggle workspaces back and forth
-bindsym $mod+grave workspace back_and_forth
+bindsym $mod+q workspace back_and_forth
 
 # Switch to next/prev workspace on current output
 bindsym $mod+n workspace next_on_output
