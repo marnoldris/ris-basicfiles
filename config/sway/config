@@ -77,6 +77,9 @@ bindswitch --reload --locked lid:on exec $lock
     # Start your launcher
     bindsym $mod+d exec $menu
 
+    # Launch ungoogled-chromium
+    bindsym $mod+c exec io.github.ungoogled_software.ungoogled_chromium
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
@@ -250,5 +253,9 @@ bindsym $mod+p workspace prev_on_output
 bindsym $mod+Shift+n workspace next
 bindsym $mod+Shift+p workspace prev
 
+# Set color for focused window
+client.focused #461257 #461257 #ffffff
+
+font mono 11
 
 include /etc/sway/config.d/*
