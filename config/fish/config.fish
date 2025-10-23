@@ -3,3 +3,7 @@ if status is-interactive
 end
 
 set -gx EDITOR nvim
+
+alias cp="cp -rv"
+alias mv="mv -v"
+alias config="nvim ~/.config/sway/config"

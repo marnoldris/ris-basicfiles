@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term kitty
 # Your preferred application launcher
 set $menu wmenu-run
 
@@ -22,6 +22,9 @@ set $menu wmenu-run
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+
+exec_always --no-startup-id ~/.config/sway/school-monitors.lua
+
 #
 # Example configuration:
 #
@@ -89,6 +92,9 @@ bindswitch --reload --locked lid:on exec $lock
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
+
+    # Lock the screen
+    bindsym $mod+Ctrl+space exec swaylock
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
@@ -235,12 +241,15 @@ bindsym $mod+r mode "resize"
         #inactive_workspace #32323200 #32323200 #5c5c5c
     #}
 #}
+bar {
+	id waybar
+
+	swaybar_command waybar
+}
 
 #
 # User additions
 #
-
-bar swaybar_command waybar
 
 # Toggle workspaces back and forth
 bindsym $mod+q workspace back_and_forth
