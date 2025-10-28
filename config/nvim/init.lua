@@ -75,6 +75,14 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
+-- Open the current file in Typora
+vim.keymap.set('n', '<F9>', ':silent! !io.typora.Typora % > /dev/null 2>&1 &<CR>', {silent = true})
+
+-- Lua: Comment out the selected block
+vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! I--[[<CR>:'>normal! A]]<CR>", {silent = true})
+
+-- Python: Comment out the selected block
+vim.keymap.set('v', '<leader>pc', ":<C-u>'<normal! O\"\"\"<CR>:'>normal! o\"\"\"<CR>", {silent = true})
 
 --local function comment_wrap()
 	--local start_pos = vim.fn.getpos("'<")
