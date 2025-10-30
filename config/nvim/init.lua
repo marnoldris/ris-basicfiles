@@ -75,13 +75,28 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
+--[[Run the LaTeX compile script]]
+vim.keymap.set('n', '<F6>', ':!pdflatex_kate %<CR>', {silent = true, noremap = true})
+
+--[[Run the LaTeX compile script in KEY mode]]
+vim.keymap.set('n', '<leader><F6>', ':!pdflatex_kate_KEY %<CR>', {silent = true, noremap = true})
+
+--[[Run Okular on the current file]]
+vim.keymap.set('n', '<F7>', ':!okular_lua %<CR>', {silent = true, noremap = true})
+
 -- Open the current file in Typora
 vim.keymap.set('n', '<F9>', ':silent! !io.typora.Typora % > /dev/null 2>&1 &<CR>', {silent = true})
 
--- Lua: Comment out the selected block
-vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! I--[[<CR>:'>normal! A]]<CR>", {silent = true})
+-- Lua: Comment out the selected visual block
+vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! O--[[<CR>:'>normal! o]]<CR>", {silent = true})
 
--- Python: Comment out the selected block
+-- Lua: Comment out current line
+vim.keymap.set('n', '<leader>lc', "mcI--[[<Esc>A]]<Esc>`cllll", {silent = true})
+
+-- Lua: Remove comment from current line
+vim.keymap.set('n', '<leader>llc', "mc0xxxx$xx`chhhh", {silent = true})
+
+-- Python: Comment out the selected visual block
 vim.keymap.set('v', '<leader>pc', ":<C-u>'<normal! O\"\"\"<CR>:'>normal! o\"\"\"<CR>", {silent = true})
 
 --local function comment_wrap()

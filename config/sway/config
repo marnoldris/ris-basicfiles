@@ -18,6 +18,11 @@ set $term kitty
 # Your preferred application launcher
 set $menu wmenu-run
 
+# Set Capslock key as Esc
+input "type:keyboard" {
+	xkb_options caps:escape
+}
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
