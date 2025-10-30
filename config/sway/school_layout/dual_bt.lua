@@ -42,6 +42,7 @@ If it does exist, remove it.
 if contains(audio_devices, 'dual_bt') then
 	-- kill the device
 	os.execute('pactl unload-module module-combine-sink')
+	os.execute('pactl set-default-sink alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Headphones__sink')
 else
 	os.execute('pactl load-module module-combine-sink ' .. options_string)
 	os.execute('pactl set-default-sink dual_bt')
