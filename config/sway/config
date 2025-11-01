@@ -255,7 +255,7 @@ bindsym $mod+r mode "resize"
     #}
 #}
 
-exec_always blueman-applet
+exec blueman-applet
 
 bar {
 	id waybar
