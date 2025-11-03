@@ -267,6 +267,9 @@ bar {
 # User additions
 #
 
+# Toggle maximize
+bindsym $mod+Shift+f exec ~/.config/sway/maximize.lua
+
 # Toggle workspaces back and forth
 bindsym $mod+q workspace back_and_forth
 
