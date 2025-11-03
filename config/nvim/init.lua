@@ -76,10 +76,10 @@ vim.o.tabstop = 4
 vim.o.shiftwidth = 4
 
 --[[Run the LaTeX compile script]]
-vim.keymap.set('n', '<F6>', ':!pdflatex_kate %<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<F6>', ':!pdflatex_lua %<CR>', {silent = true, noremap = true})
 
 --[[Run the LaTeX compile script in KEY mode]]
-vim.keymap.set('n', '<leader><F6>', ':!pdflatex_kate_KEY %<CR>', {silent = true, noremap = true})
+vim.keymap.set('n', '<leader><F6>', ':!pdflatex_lua_KEY %<CR>', {silent = true, noremap = true})
 
 --[[Run Okular on the current file]]
 vim.keymap.set('n', '<F7>', ':!okular_lua %<CR>', {silent = true, noremap = true})
