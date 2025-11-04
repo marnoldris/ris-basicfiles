@@ -275,6 +275,9 @@ bar {
 # User additions
 #
 
+# Toggle maximize
+bindsym $mod+Shift+f exec ~/.config/sway/maximize.lua
+
 # Start dual_bt.lua
 exec ~/.config/sway/dual_bt.lua
 
