@@ -9,6 +9,8 @@ vim.g.mapleader = ' '
 -- To see documentation for an option, you can use `:h 'optionname'`, for example `:h 'number'`
 -- (Note the single quotes)
 
+vim.cmd("colorscheme wildcharm")
+
 -- Print the line number in front of each line
 vim.o.number = true
 
