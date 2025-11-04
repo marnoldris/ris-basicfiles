@@ -275,11 +275,14 @@ bar {
 # User additions
 #
 
+# Cycle wallpaper
+bindsym $mod+Shift+w exec ~/.config/sway/refresh_wallpaper.lua
+
 # Toggle maximize
 bindsym $mod+Shift+f exec ~/.config/sway/maximize.lua
 
 # Start dual_bt.lua
-exec ~/.config/sway/dual_bt.lua
+#exec ~/.config/sway/dual_bt.lua
 
 # Toggle workspaces back and forth
 bindsym $mod+q workspace back_and_forth

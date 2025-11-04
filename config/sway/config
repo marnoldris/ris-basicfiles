@@ -267,6 +267,9 @@ bar {
 # User additions
 #
 
+# Cycle wallpaper
+bindsym $mod+Shift+w exec ~/.config/sway/refresh_wallpaper.lua
+
 # Toggle maximize
 bindsym $mod+Shift+f exec ~/.config/sway/maximize.lua
 

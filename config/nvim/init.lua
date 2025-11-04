@@ -35,7 +35,7 @@ vim.o.smartcase = true
 vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 10
+vim.o.scrolloff = 5
 
 -- Show <tab> and trailing spaces
 vim.o.list = true
@@ -96,26 +96,10 @@ vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! O--[[<CR>:'>normal! o]]<CR>",
 vim.keymap.set('n', '<leader>lc', "mcI--[[<Esc>A]]<Esc>`cllll", {silent = true})
 
 -- Lua: Remove comment from current line
-vim.keymap.set('n', '<leader>llc', "mc0xxxx$xx`chhhh", {silent = true})
+vim.keymap.set('n', '<leader>llc', "mc^xxxx$xx`ch", {silent = true})
 
 -- Python: Comment out the selected visual block
 vim.keymap.set('v', '<leader>pc', ":<C-u>'<normal! O\"\"\"<CR>:'>normal! o\"\"\"<CR>", {silent = true})
-
---local function comment_wrap()
-	--local start_pos = vim.fn.getpos("'<")
-	--local end_pos = vim.fn.getpos("'>")
-
-	--vim.api.nvim_buf_set_text(0,
-		--start_pos[2]-1, start_pos[3]-1,
-		--start_pos[2]-1, start_pos[3]-1,
-		--{']]'})
-	--end_pos[2] = end_pos[2]+1
-	--vim.api.nvim_buf_set_text(0,
-		--end_pos[2]-1, end_pos[3],
-		--end_pos[2]-1, end_pos[3],
-		--{'--[['})
---end
---vim.keymap.set('x', '<leader>c', comment_wrap, { silent = true })
 
 
 -- Create a command `:GitBlameLine` that print the git blame for the current line
