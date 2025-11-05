@@ -93,10 +93,10 @@ vim.keymap.set('n', '<F9>', ':silent! !io.typora.Typora % > /dev/null 2>&1 &<CR>
 vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! O--[[<CR>:'>normal! o]]<CR>", {silent = true})
 
 -- Lua: Comment out current line
-vim.keymap.set('n', '<leader>lc', "mcI--[[<Esc>A]]<Esc>`cllll", {silent = true})
+vim.keymap.set('n', '<leader>lc', "mcI--[[<Space><Esc>A<Space>]]<Esc>`clllll", {silent = true})
 
 -- Lua: Remove comment from current line
-vim.keymap.set('n', '<leader>llc', "mc^xxxx$xx`ch", {silent = true})
+vim.keymap.set('n', '<leader>llc', "mc^xxxxx$xxx`ch", {silent = true})
 
 -- Python: Comment out the selected visual block
 vim.keymap.set('v', '<leader>pc', ":<C-u>'<normal! O\"\"\"<CR>:'>normal! o\"\"\"<CR>", {silent = true})
