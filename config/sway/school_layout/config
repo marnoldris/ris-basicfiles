@@ -243,7 +243,10 @@ bindsym $mod+r mode "resize"
     bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
     bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
     # Special key to take a screenshot with grim
-    bindsym Print exec grim
+    bindsym Print exec grim /tmp/out.png && gwenview /tmp/out.png
+    bindsym $mod+Shift+p exec grim -o "$(swaymsg -t get_outputs \
+		| jq -r '.[] | select(.focused) | .name')" \
+		/tmp/out.png && gwenview /tmp/out.png
 
 #
 # Status Bar:
@@ -292,8 +295,8 @@ bindsym $mod+n workspace next_on_output
 bindsym $mod+p workspace prev_on_output
 
 # Switch to next/prev workspace on all outputs
-bindsym $mod+Shift+n workspace next
-bindsym $mod+Shift+p workspace prev
+#bindsym $mod+Shift+n workspace next
+#bindsym $mod+Shift+p workspace prev
 
 # Set color for focused window
 client.focused #461257 #461257 #ffffff
