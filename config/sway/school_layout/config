@@ -110,8 +110,10 @@ exec swayidle -w \
     bindsym $mod+Shift+c reload
 
     # Lock the screen
-    bindsym $mod+Ctrl+space exec $lock
+    #bindsym $mod+Ctrl+space exec $lock
+	bindsym $mod+Ctrl+space exec ~/.config/sway/trans_lock.lua
 
+		#-i DP-3:/home/matthew-sway/Pictures/wallpaper/Dragonhawk-Fates-Tempest-2-Bloomburrow-MtG-Art.jpg \
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
