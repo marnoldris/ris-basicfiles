@@ -11,6 +11,7 @@ function split(str, delim)
 	local t = {}
 	delim = delim or "%s+" -- default to whitespace
 	for token in string.gmatch(str, "[^" .. delim .. "]+") do
+		token = token:gsub('%s', '')
 		table.insert(t, token)
 	end
 	return t
