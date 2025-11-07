@@ -23,6 +23,7 @@ if #arg < 1 then
 	]])
 end
 
+--[[ Functions ]]
 local function split(str, delim)
 	--[[ Splits a string into a table based on delim ]]
 	local t = {}
@@ -49,6 +50,7 @@ local function title(s)
 	return string.gsub(s, '%f[%w]%l', string.upper)
 end
 
+--[[ Open the file and build a table of its contents ]]
 file = io.open(arg[1])
 
 names = {}
@@ -83,7 +85,7 @@ shuffle(names)
 --[[ Make the table of pairs. Each pair is a table ]]
 pairs = {}
 
-if #names % 2 == 1 then
+if #names % 2 == 1 then -- odd cardinality case
 	local temp = {}
 	for i = 1, 3 do
 		table.insert(temp, table.remove(names, #names))
@@ -148,7 +150,7 @@ if response:match('^y') then
 		end
 	end
 
-	--[[ Open the file in write mode ]]
+	--[[ Open the file in append mode ]]
 	output = io.open(out_file, 'a')
 	for _, pairing in ipairs(output_table) do
 		output:write(pairing .. '\n')
