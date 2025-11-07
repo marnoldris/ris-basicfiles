@@ -43,22 +43,12 @@ else:
 # %% Parse input file
 names = []
 
-"""
-print('Are the names in <Last name>, <First name> format? (y/N)')
-try:
-    format_q = input('> ').lower()
-except KeyboardInterrupt:
-    print('Exiting...')
-    sys.exit()
-"""
-
-if ',' in name_lines[0]:
-    for line in name_lines:
+for line in name_lines:
+    if ',' in line:
         first_name = line.split(',')[1].strip()
         last_name = line.split(',')[0].strip()
         names.append(f'{first_name} {last_name}')
-else:
-    for line in name_lines:
+    else:
         names.append(line.strip())
 
 random.shuffle(names)
