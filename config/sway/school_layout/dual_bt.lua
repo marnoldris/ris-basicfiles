@@ -14,8 +14,8 @@ end
 options = {
 	'sink_name=dual_bt',
 	'slaves=bluez_output.C0_28_8D_F5_C3_17.1,bluez_output.28_FA_19_5E_6B_9C.1',
-	'sink_properties=device.description="Dual bluetooth speaker output"',
-	'adjust_time=0'
+	'sink_properties=device.description="Dual bluetooth speaker output"'
+	-- 'adjust_time=0'
 }
 
 options_string = table.concat(options, ' ')

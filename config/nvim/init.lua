@@ -1,3 +1,48 @@
+--[[ Enable the Lua language server ]]
+ vim.lsp.config['luals'] = {
+   -- Command and arguments to start the server.
+   cmd = { 'lua-language-server' },
+
+   -- Filetypes to automatically attach to.
+   filetypes = { 'lua' },
+
+   -- Sets the "root directory" to the parent directory of the file in the
+   -- current buffer that contains either a ".luarc.json" or a
+   -- ".luarc.jsonc" file. Files that share a root directory will reuse
+   -- the connection to the same LSP server.
+   -- Nested lists indicate equal priority, see |vim.lsp.Config|.
+   root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+
+   -- Specific settings to send to the server. The schema for this is
+   -- defined by the server. For example the schema for lua-language-server
+   -- can be found here https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json
+   settings = {
+	 Lua = {
+	   runtime = {
+		 version = 'LuaJIT',
+	   }
+	 }
+   }
+ }
+vim.lsp.enable('luals')
+-- Press K in normal mode to view a diagnostic popup
+
+--[[ LaTeX LSP ]]
+ vim.lsp.config['latex-lsp'] = {
+   -- Command and arguments to start the server.
+   cmd = { 'texlab' },
+
+   -- Filetypes to automatically attach to.
+   filetypes = { 'tex' },
+
+   root_markers = { '.git' },
+
+ }
+vim.lsp.enable('latex-lsp')
+
+-- Always show the sign column
+vim.o.signcolumn = 'yes'
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 -- NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)

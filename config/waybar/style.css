@@ -7,7 +7,7 @@
 window#waybar {
     background-color: rgba(43, 48, 59, 0.5);
     border-bottom: 3px solid rgba(100, 114, 125, 0.5);
-    border-radius: 25px;
+    border-radius: 7px;
     color: #ffffff;
     transition-property: background-color;
     transition-duration: .5s;
@@ -120,15 +120,18 @@ button:hover {
 }
 
 #clock {
+	font-family: monospace;
     background-color: #64727D;
 }
 
 #battery {
+	font-family: monospace;
     background-color: #ffffff;
     color: #000000;
 }
 
 #battery.charging, #battery.plugged {
+	font-family: monospace;
     color: #ffffff;
     background-color: #26A65B;
 }
@@ -142,6 +145,7 @@ button:hover {
 
 /* Using steps() instead of linear as a timing function to limit cpu usage */
 #battery.critical:not(.charging) {
+	font-family: monospace;
     background-color: #f53c3c;
     color: #ffffff;
     animation-name: blink;
@@ -175,72 +179,88 @@ label:focus {
 }
 
 #cpu {
+	font-family: monospace;
     background-color: #2ecc71;
     color: #000000;
 }
 
 #memory {
+	font-family: monospace;
     background-color: #9b59b6;
 }
 
 #disk {
+	font-family: monospace;
     background-color: #964B00;
 }
 
 #backlight {
+	font-family: monospace;
     background-color: #90b1b1;
 }
 
 #network {
+	font-family: monospace;
     background-color: #2980b9;
 }
 
 #network.disconnected {
+	font-family: monospace;
     background-color: #f53c3c;
 }
 
 #pulseaudio {
+	font-family: monospace;
     background-color: #f1c40f;
     color: #000000;
 }
 
 #pulseaudio.muted {
+	font-family: monospace;
     background-color: #90b1b1;
     color: #2a5c45;
 }
 
 #wireplumber {
+	font-family: monospace;
     background-color: #fff0f5;
     color: #000000;
 }
 
 #wireplumber.muted {
+	font-family: monospace;
     background-color: #f53c3c;
 }
 
 #custom-media {
+	font-family: monospace;
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
 }
 
 #custom-media.custom-spotify {
+	font-family: monospace;
     background-color: #66cc99;
 }
 
 #custom-media.custom-vlc {
+	font-family: monospace;
     background-color: #ffa000;
 }
 
 #temperature {
+	font-family: monospace;
     background-color: #f0932b;
 }
 
 #temperature.critical {
+	font-family: monospace;
     background-color: #eb4d4b;
 }
 
 #tray {
+	font-family: monospace;
     background-color: #2980b9;
 }
 
@@ -263,23 +283,28 @@ label:focus {
 }
 
 #mpd {
+	font-family: monospace;
     background-color: #66cc99;
     color: #2a5c45;
 }
 
 #mpd.disconnected {
+	font-family: monospace;
     background-color: #f53c3c;
 }
 
 #mpd.stopped {
+	font-family: monospace;
     background-color: #90b1b1;
 }
 
 #mpd.paused {
+	font-family: monospace;
     background-color: #51a37a;
 }
 
 #language {
+	font-family: monospace;
     background: #00b093;
     color: #740864;
     padding: 0 5px;
@@ -288,6 +313,7 @@ label:focus {
 }
 
 #keyboard-state {
+	font-family: monospace;
     background: #97e1ad;
     color: #000000;
     padding: 0 0px;
@@ -304,10 +330,12 @@ label:focus {
 }
 
 #scratchpad {
+	font-family: monospace;
     background: rgba(0, 0, 0, 0.2);
 }
 
 #scratchpad.empty {
+	font-family: monospace;
 	background-color: transparent;
 }
 

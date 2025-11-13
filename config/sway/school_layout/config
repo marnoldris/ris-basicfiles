@@ -14,7 +14,9 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term kitty
+set $term foot
+bindsym $mod+Ctrl+t exec kitty
+
 # Your preferred application launcher
 set $menu wmenu-run
 
@@ -281,7 +283,7 @@ bar {
 #
 
 # Cycle wallpaper
-bindsym $mod+Shift+w exec ~/.config/sway/refresh_wallpaper.lua
+bindsym $mod+Shift+w exec ~/.config/sway/refresh_wallpaper.lua && ~/.config/sway/school-monitors.lua
 
 # Toggle maximize
 bindsym $mod+Shift+f exec ~/.config/sway/maximize.lua

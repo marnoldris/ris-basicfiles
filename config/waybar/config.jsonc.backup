@@ -8,6 +8,7 @@
     // "width": 1280, // Waybar width
     "spacing": 4, // Gaps between modules (4px)
     // Choose the order of the modules
+    "output": ["DP-3"],
     "modules-left": [
         "sway/workspaces",
         "sway/mode",

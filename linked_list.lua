@@ -131,4 +131,30 @@ function LinkedList:contains(value)
 	return false
 end
 
+function LinkedList:print()
+	if self.head == nil then
+		return nil, 'List is empty.'
+	end
+	--traverse the list and print each value
+	local current_node = self.head
+	while current_node ~= nil do
+		print(current_node.data)
+		current_node = current_node.nxt
+	end
+	return true
+end
+
+function LinkedList:reverse()
+	if self.head == nil then
+		return nil, 'List is empty.'
+	end
+	local tmp = LinkedList:new()
+	local current_node = self.head
+	while current_node ~= nil do
+		tmp:push(current_node.data)
+		current_node = current_node.nxt
+	end
+	return tmp
+end
+
 return LinkedList
