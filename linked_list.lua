@@ -144,7 +144,7 @@ function LinkedList:print()
 	return true
 end
 
-function LinkedList:reverse()
+function LinkedList:reversed()
 	if self.head == nil then
 		return nil, 'List is empty.'
 	end
