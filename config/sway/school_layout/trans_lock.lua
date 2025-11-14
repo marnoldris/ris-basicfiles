@@ -11,13 +11,13 @@ local function contains(table, value)
 end
 
 local function get_monitors()
-	handle = io.popen('echo "$(swaymsg -t get_outputs -r)" | jq -r ".[] | .name"')
+	local handle = io.popen('echo "$(swaymsg -t get_outputs -r)" | jq -r ".[] | .name"')
 
 	if not handle then
 		error('Error: io.popen() failed!')
 	end
 
-	monitors = {}
+	local monitors = {}
 	for line in handle:lines() do
 		table.insert(monitors, line)
 	end
@@ -27,8 +27,7 @@ end
 
 
 --[[ Default lock screen image path ]]
-img_path = '/home/matthew-sway/Pictures/wallpaper/Dragonhawk-Fates-Tempest-2-Bloomburrow-MtG-Art.jpg'
-
+local img_path = '/home/matthew-sway/Pictures/wallpaper/Dragonhawk-Fates-Tempest-2-Bloomburrow-MtG-Art.jpg'
 
 --[[
 Grab a screenshot of DP-1 if it is connected
@@ -38,7 +37,11 @@ local monitors = get_monitors()
 if contains(monitors, "DP-1") then
 	--[[ Get the projector screenshot ]]
 	local proj_ss = '/tmp/proj.png'
+	--local proj_ss = '/home/matthew-sway/Pictures/trans.png'
 	os.execute('grim -o DP-1 ' .. proj_ss)
+
+	-- short pause to make sure the screenshot is taken
+	os.execute('sleep 1')
 
 	--[[ Lock the screen showing the projector screenshot ]]
 	os.execute([[swaylock -f -i DP-1:]] .. proj_ss ..
