@@ -12,21 +12,9 @@ end
 local function pasters(...)
 
 	local cmd
+	local filename_given = select(1, ...)
 	local file   = select(1, ...)-- or '/dev/stdin'
-	local delete = select(2, ...)
-
-	if not file then
-		print('Enter text to upload to https://paste.rs below.')
-		print('Press Enter/Return then Ctrl+d when you are finished.\n')
-		---[[
-		file = os.tmpname()
-		local user_input = io.read('*a')
-
-		local tmp_file = assert(io.open(file, 'w'))
-		tmp_file:write(user_input)
-		tmp_file:close()
-		--]]
-	end
+	local delete = file and string.match(file, '^https') or select(2, ...)
 
 	if delete then
 		print('Deleting ' .. file .. '...')
@@ -37,19 +25,33 @@ local function pasters(...)
 		end
 		os.execute(cmd)
 	else
+		if not file then
+			print('Enter text to upload to https://paste.rs below.')
+			print('Press Enter/Return then Ctrl+d when you are finished.\n')
+			---[[
+			file = os.tmpname()
+			local user_input = io.read('*a')
+
+			local tmp_file = assert(io.open(file, 'w'))
+			tmp_file:write(user_input)
+			tmp_file:close()
+		end
+
 		cmd = string.format('curl --data-binary @%s https://paste.rs', file)
-		---[[
 		local handle = io.popen(cmd)
 		local last_line
 		for line in handle:lines() do
 			last_line = line
 		end
 		handle:close()
+		if not filename_given then
+			print('Removing temporary file: ' .. file)
+			os.remove(file)
+		end
 		print(last_line)
 
 		-- Note this helper function must be declared ABOVE this function
 		copy_to_clipboard(last_line)
-		--]]
 	end
 end
 
