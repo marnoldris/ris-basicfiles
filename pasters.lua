@@ -2,7 +2,7 @@
 
 local function copy_to_clipboard(str)
 	if not os.execute('which wl-copy > /dev/null 2>&1') then
-		error('wl-copy not found, try installing it with # pacman -Sy wl-clipboard')
+		error('wl-copy not found, please install the wl-clipboard package.')
 	else
 		os.execute(string.format('wl-copy %s', str))
 		print('URL copied to clipboard')
@@ -28,7 +28,7 @@ local function pasters(...)
 		if not file then
 			print('Enter text to upload to https://paste.rs below.')
 			print('Press Enter/Return then Ctrl+d when you are finished.\n')
-			---[[
+
 			file = os.tmpname()
 			local user_input = io.read('*a')
 
