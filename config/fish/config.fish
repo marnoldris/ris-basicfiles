@@ -9,7 +9,7 @@ alias spyder='~/spyder-venv/bin/spyder'
 
 alias cp="cp -rv"
 alias mv="mv -v"
-alias ls="ls -la"
+alias ls="ls -l --color"
 
 alias sway_config="nvim ~/.config/sway/config"
 alias nvim_config="nvim ~/.config/nvim/init.lua"
