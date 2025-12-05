@@ -131,6 +131,9 @@ vim.keymap.set('n', '<leader><F6>', ':w<CR> | :!pdflatex_lua_KEY %<CR>', {silent
 --[[Run Okular on the current file]]
 vim.keymap.set('n', '<F7>', ':silent! !okular_lua %<CR>', {silent = true, noremap = true})
 
+--[[Run Okular KEY on the current file]]
+vim.keymap.set('n', '<leader><F7>', ':silent! !okular_lua % KEY<CR>', {silent = true, noremap = true})
+
 -- Open the current file in Typora
 vim.keymap.set('n', '<F9>', ':silent! !io.typora.Typora % > /dev/null 2>&1 &<CR>', {silent = true})
 
