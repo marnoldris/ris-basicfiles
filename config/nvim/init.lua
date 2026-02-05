@@ -138,7 +138,7 @@ vim.keymap.set('n', '<leader><F7>', ':silent! !okular_lua % KEY<CR>', {silent = 
 vim.keymap.set('n', '<F9>', ':silent! !io.typora.Typora % > /dev/null 2>&1 &<CR>', {silent = true})
 
 -- Lua: Comment out the selected visual block
-vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! O--[[<CR>:'>normal! o]]<CR>", {silent = true})
+vim.keymap.set('v', '<leader>lc', ":<C-u>'<normal! O--[[<CR>:'>normal! o--]]<CR>", {silent = true})
 
 -- Lua: Comment out current line
 vim.keymap.set('n', '<leader>lc', "mcI--[[<Space><Esc>A<Space>]]<Esc>`clllll", {silent = true})
