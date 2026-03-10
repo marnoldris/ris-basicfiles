@@ -65,7 +65,7 @@ local function find_oldest(t, separator)
 	--]]
 end
 
---print(find_oldest({'world', 'world_2_3_18', 'world_1_3_18', 'world_10_10_18'}))
+-- print(find_oldest({'world', 'world_2_3_2018', 'world_1_3_2018', 'world_10_10_2019'}))
 
 return {
 	find_oldest = find_oldest
