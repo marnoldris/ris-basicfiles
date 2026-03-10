@@ -35,6 +35,8 @@ If it is greater than a certain size:
 
 local handle = io.popen('du -s -B G /srv/minecraft/world_backup')
 local size = string.match(handle:read(), '^%d+')
+-- convert size to a number from a string
+size = size + 0
 handle:close()
 
 if size > 3 then
