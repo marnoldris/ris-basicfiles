@@ -3,7 +3,7 @@
 local m = require('find_oldest')
 
 --[[ Make the folder /srv/minecraft/world_backup if it doesn't already exist ]]
-local handle = io.popen('ls -la')
+local handle = io.popen('ls -la /srv/minecraft')
 local ls_results = {}
 for line in handle:lines() do
 	table.insert(ls_results, line)
