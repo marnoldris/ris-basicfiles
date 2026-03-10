@@ -24,10 +24,12 @@ local function find_oldest(t, separator)
 		end
 	end
 
+	--[[
 	for _, v in ipairs(smallest_year) do
 		print(v)
 	end
 	print('---')
+	--]]
 
 	tmp_smallest = math.huge
 	for _, v in ipairs(smallest_year) do
@@ -38,10 +40,12 @@ local function find_oldest(t, separator)
 			table.insert(smallest_month, v)
 		end
 	end
+	--[[
 	for _, v in ipairs(smallest_month) do
 		print(v)
 	end
 	print('---')
+	--]]
 
 	tmp_smallest = math.huge
 	for _, v in ipairs(smallest_month) do
@@ -62,3 +66,7 @@ local function find_oldest(t, separator)
 end
 
 --print(find_oldest({'world', 'world_2_3_18', 'world_1_3_18', 'world_10_10_18'}))
+
+return {
+	find_oldest = find_oldest
+}
