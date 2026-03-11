@@ -1,5 +1,7 @@
 #!/usr/bin/env lua
 
+--[[ package.path must have the script directory appended if the required scripts are not in standard locations ]]
+--package.path = package.path .. ';/srv/minecraft/minecraft_scripts/?.lua'
 local m = require('find_oldest')
 
 --[[ Make the folder /srv/minecraft/world_backup if it doesn't already exist ]]
