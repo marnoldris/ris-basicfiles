@@ -11,7 +11,8 @@ if #arg < 4 then
 end
 --]]
 
-if string.match(arg[2], '%D') then
+if string.match(arg[2], '.%D') then
+	print('Using players')
 	player2 = arg[2]
 	sleep_time = arg[3] or '30'
 else
@@ -20,6 +21,8 @@ else
 	z = arg[4] or '0'
 	sleep_time = arg[5] or '30'
 end
+print(arg[2])
+print(x, y, z, sleep_time)
 
 local to_prison
 to_prison = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "teleport %s %s %s %s" ENTER']=], player, '0', '300', '0')
@@ -31,6 +34,7 @@ else
 	tp_back = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "teleport %s %s %s %s" ENTER']=], player, x, y, z)
 end
 
+--os.execute(to_prison .. ';' .. string.format('sleep %s', sleep_time) .. ';' .. tp_back .. ' &')
 os.execute(to_prison)
 os.execute(string.format('sleep %s', sleep_time))
 os.execute(tp_back)

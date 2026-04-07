@@ -1,7 +1,5 @@
 #!/usr/bin/env lua
 
---[[ package.path must have the script directory appended if the required scripts are not in standard locations ]]
---package.path = package.path .. ';/srv/minecraft/minecraft_scripts/?.lua'
 local m = require('find_oldest')
 
 --[[ Make the folder /srv/minecraft/world_backup if it doesn't already exist ]]
@@ -37,8 +35,6 @@ If it is greater than a certain size:
 
 local handle = io.popen('du -s -B G /srv/minecraft/world_backup')
 local size = string.match(handle:read(), '^%d+')
--- convert size to a number from a string
-size = size + 0
 handle:close()
 
 if size > 3 then
