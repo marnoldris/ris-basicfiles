@@ -62,6 +62,8 @@ local function ldg()
 
 	print('Entering debug mode.')
 	print('Press Return to continue your script or enter a variable name to print its value.\n')
+	print('To print a list of all variables of a scope, enter _get_all_locals, _get_all_upvalues, or _get_all_globals respectively.')
+	print('Note that table traversal for upvalues and globals is not available.\n')
 
 	repeat
 		local locals = get_locals()
@@ -114,6 +116,43 @@ local function ldg()
 				tab_rec(question, globals[question])
 			else
 				print('Global variable ' .. question .. ':\n' .. tostring(globals[question]))
+			end
+		end
+
+		if question == '_get_all_locals' then
+			found = true
+			for k, v in pairs(locals) do
+				if type(v) == 'table' then
+					tab_rec(k, v)
+					print()
+				else
+					print(tostring(k), tostring(v))
+					print()
+				end
+			end
+		end
+		if question == '_get_all_upvalues' then
+			found = true
+			for k, v in pairs(upvals) do
+				if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
+					tab_rec(k, v)
+					print()
+				else
+					print(tostring(k), tostring(v))
+					print()
+				end
+			end
+		end
+		if question == '_get_all_globals' then
+			found = true
+			for k, v in pairs(globals) do
+				if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
+					tab_rec(k, v)
+					print()
+				else
+					print(tostring(k), tostring(v))
+					print()
+				end
 			end
 		end
 
