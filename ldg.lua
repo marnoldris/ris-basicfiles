@@ -7,7 +7,7 @@ local function ldg()
 	local exit_values = {[''] = true} --, quit = true, q = true, QUIT = true}
 
 	-- Functions
-	local function locals()
+	local function get_locals()
 		local vars = {}
 		local i = 1
 		while true do
@@ -22,7 +22,7 @@ local function ldg()
 		return vars
 	end
 
-	local function upvalues()
+	local function get_upvalues()
 		local vars = {}
 		local i = 1
 		local func = debug.getinfo(3, 'f').func
@@ -64,8 +64,8 @@ local function ldg()
 	print('Press Return to continue your script or enter a variable name to print its value.\n')
 
 	repeat
-		local locals = locals()
-		local upvals = upvalues()
+		local locals = get_locals()
+		local upvals = get_upvalues()
 		local globals = _ENV
 		local found = false
 		io.write('>> ')
