@@ -83,7 +83,7 @@ local function ldg()
 				print('Local table found:\n')
 				tab_rec(question, locals[question])
 			else
-				print('Local variable ' .. question .. ':\n' .. locals[question])
+				print('Local variable ' .. question .. ':\n' .. tostring(locals[question]))
 			end
 		end
 		if upvals[question] ~= nil then
@@ -98,7 +98,7 @@ local function ldg()
 				print('Upvalue table found:\n')
 				tab_rec(question, upvals[question])
 			else
-				print('Upvalue ' .. question .. ':\n' .. upvals[question])
+				print('Upvalue ' .. question .. ':\n' .. tostring(upvals[question]))
 			end
 		end
 		if globals[question] ~= nil then
@@ -113,7 +113,7 @@ local function ldg()
 				print('Global table found:\n')
 				tab_rec(question, globals[question])
 			else
-				print('Global variable ' .. question .. ':\n' .. globals[question])
+				print('Global variable ' .. question .. ':\n' .. tostring(globals[question]))
 			end
 		end
 
