@@ -1,5 +1,7 @@
 #!/usr/bin/env lua
 
+--ldg = require('ldg')
+
 local function execute_cmd(cmd)
 	local handle = io.popen(cmd)
 	local result = handle:read('*a')
@@ -22,6 +24,8 @@ for match in raw_result:gmatch('online:%s*(.-)\n') do
 	player_string = match
 end
 
+if player_string:match('^>%s*') then player_string = '' end
+
 --print(players)
 
 
@@ -32,7 +36,10 @@ for player in player_string:gmatch('[^,%s]+') do
 end
 
 for _, name in ipairs(players) do
+	--ldg()
 	print(name)
-	os.execute(string.format('lua %s %s', arg[1], name))
+	if arg[1] then
+		os.execute(string.format('lua %s %s', arg[1], name))
+	end
 end
 --]]
