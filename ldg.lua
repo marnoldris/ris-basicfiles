@@ -62,7 +62,7 @@ local function ldg()
 
 	print('Entering debug mode.')
 	print('Press Return to continue your script or enter a variable name to print its value.\n')
-	print('To print a list of all variables of a scope, enter _get_all_locals, _get_all_upvalues, or _get_all_globals respectively.')
+	print('To print a list of all variables of a scope, enter _get_locals, _get_upvalues, or _get_globals respectively. Include a -v flag to print their values as well.')
 	print('Note that table traversal for upvalues and globals is not available.\n')
 
 	repeat
@@ -119,39 +119,52 @@ local function ldg()
 			end
 		end
 
-		if question == '_get_all_locals' then
+		--[[ Getting all variables ]]
+		if string.match(question, '(_get_locals)') then
 			found = true
 			for k, v in pairs(locals) do
-				if type(v) == 'table' then
-					tab_rec(k, v)
-					print()
+				if string.match(question, '-v') then
+					if type(v) == 'table' then
+						tab_rec(k, v)
+						--print()
+					else
+						print(tostring(k), tostring(v))
+						--print()
+					end
 				else
-					print(tostring(k), tostring(v))
-					print()
+					print(tostring(k))
 				end
 			end
 		end
-		if question == '_get_all_upvalues' then
+		if string.match(question, '(_get_upvalues)') then
 			found = true
 			for k, v in pairs(upvals) do
-				if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
-					tab_rec(k, v)
-					print()
+				if string.match(question, '(-v)') then
+					if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
+						tab_rec(k, v)
+						--print()
+					else
+						print(tostring(k), tostring(v))
+						--print()
+					end
 				else
-					print(tostring(k), tostring(v))
-					print()
+					print(tostring(k))
 				end
 			end
 		end
-		if question == '_get_all_globals' then
+		if string.match(question, '(_get_globals)') then
 			found = true
 			for k, v in pairs(globals) do
-				if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
-					tab_rec(k, v)
-					print()
+				if string.match(question, '(-v)') then
+					if type(v) == 'table_' then -- table_ will always fail as traversal is untenable
+						tab_rec(k, v)
+						--print()
+					else
+						print(tostring(k), tostring(v))
+						--print()
+					end
 				else
-					print(tostring(k), tostring(v))
-					print()
+					print(tostring(k))
 				end
 			end
 		end
@@ -168,7 +181,7 @@ local function ldg()
 end
 
 
---[[
+---[[
 local a = 1
 b = 2
 local c = {'one', 'two', three = 3}
