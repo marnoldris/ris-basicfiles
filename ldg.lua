@@ -7,11 +7,23 @@ local function ldg()
 	local exit_values = {[''] = true} --, quit = true, q = true, QUIT = true}
 
 	-- Functions
-	local function get_locals()
+	local function get_caller_level()
+		local level = 1; while true do
+			local info = debug.getinfo(level, 'f')
+			if not info then break end
+			if info.func == ldg then
+				-- The cller is 1 frame above ldg
+				return level + 1
+			end
+			level = level + 1
+		end
+	end
+
+	local function get_locals(level)
 		local vars = {}
 		local i = 1
 		while true do
-			local ln, lv = debug.getlocal(3, i)
+			local ln, lv = debug.getlocal(level, i)
 			if ln ~= nil then
 				vars[ln] = lv
 			else
@@ -22,8 +34,29 @@ local function ldg()
 		return vars
 	end
 
-	local function get_upvalues()
+	local function get_upvalues(level)
 		local vars = {}
+
+		-- A different way to make sure all upvalues are retrieved
+		
+		while true do
+			local info = debug.getinfo(level)
+			if not info then break end
+			local func = info.func
+			do local i=1
+				while true do
+					local name, value = debug.getupvalue(func, i)
+					if not name then break end
+					vars[name] = value
+					i = i + 1
+				end
+			end
+			level = level + 1
+		end
+		return vars
+	end
+
+		--[[
 		local i = 1
 		local func = debug.getinfo(3, 'f').func
 		while true do
@@ -37,6 +70,7 @@ local function ldg()
 		end
 		return vars
 	end
+	--]]
 
 	local function tab_rec(name, val, indent)
 		indent = indent or ''
@@ -66,8 +100,9 @@ local function ldg()
 	print('Note that table traversal for upvalues and globals is not available.\n')
 
 	repeat
-		local locals = get_locals()
-		local upvals = get_upvalues()
+		local caller_level = get_caller_level()
+		local locals = get_locals(caller_level)
+		local upvals = get_upvalues(caller_level)
 		local globals = _ENV
 		local found = false
 		io.write('>> ')
@@ -120,7 +155,7 @@ local function ldg()
 		end
 
 		--[[ Getting all variables ]]
-		if string.match(question, '(_get_locals)') then
+		if string.match(question, '^(_get_locals)') then
 			found = true
 			for k, v in pairs(locals) do
 				if string.match(question, '-v') then
@@ -136,7 +171,7 @@ local function ldg()
 				end
 			end
 		end
-		if string.match(question, '(_get_upvalues)') then
+		if string.match(question, '^(_get_upvalues)') then
 			found = true
 			for k, v in pairs(upvals) do
 				if string.match(question, '(-v)') then
@@ -152,7 +187,7 @@ local function ldg()
 				end
 			end
 		end
-		if string.match(question, '(_get_globals)') then
+		if string.match(question, '^(_get_globals)') then
 			found = true
 			for k, v in pairs(globals) do
 				if string.match(question, '(-v)') then
