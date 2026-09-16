@@ -17,11 +17,11 @@ local y4 = arg[11] or '300'
 local z4 = arg[12] or '-1'
 
 
-local fill_bedrock = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "fill %s %s %s %s %s %s bedrock" ENTER']=], x1, y1, z1, x2, y2, z2)
+local fill_bedrock = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "fill %s %s %s %s %s %s bedrock" ENTER']=], x1, y1, z1, x2, y2, z2)
 
-local fill_air = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "fill %s %s %s %s %s %s air" ENTER']=], x3, y3, z3, x4, y4, z4)
+local fill_air = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "fill %s %s %s %s %s %s air" ENTER']=], x3, y3, z3, x4, y4, z4)
 
-local place_torch = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "setblock %s %s %s minecraft:wall_torch[facing=east]" ENTER']=], '-1', '309', '0')
+local place_torch = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "setblock %s %s %s minecraft:wall_torch[facing=east]" ENTER']=], '-1', '309', '0')
 
 os.execute(fill_bedrock)
 os.execute(fill_air)

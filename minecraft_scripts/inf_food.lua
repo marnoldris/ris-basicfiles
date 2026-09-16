@@ -2,7 +2,7 @@
 
 --[[ Turtle code ]]
 
-local player = arg[1] or '@p'
+local player = arg[1] or '@a'
 
 local saturation_cmd = string.format(
 	'effect give %s minecraft:saturation infinite 255 true',
@@ -13,7 +13,7 @@ local saturation_cmd = string.format(
 print(saturation_cmd)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "%s" ENTER']],
+	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	saturation_cmd
 )
 os.execute(cmd)

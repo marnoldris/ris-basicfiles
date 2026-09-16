@@ -36,8 +36,8 @@ for player in player_string:gmatch('[^,%s]+') do
 end
 
 for _, name in ipairs(players) do
-	--ldg()
 	print(name)
+	--ldg()
 	if arg[1] then
 		os.execute(string.format('lua %s %s', arg[1], name))
 	end

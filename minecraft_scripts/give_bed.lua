@@ -21,7 +21,7 @@ local upgrades = {
 local place_string = table.concat(can_place, ',')
 local upgrade_string = table.concat(upgrades, ',')
 
-local player = arg[1] or '@p'
+local player = arg[1] or '@a'
 
 local bed_cmd = string.format(
 	'give %s minecraft:white_bed{CanPlaceOn:[%s],BlockEntityTag:{CanPlaceOn:[%s]}} 1',
@@ -35,7 +35,7 @@ local bed_cmd = string.format(
 print(bed_cmd)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "%s" ENTER']],
+	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	bed_cmd
 )
 os.execute(cmd)

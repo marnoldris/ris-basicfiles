@@ -25,13 +25,13 @@ print(arg[2])
 print(x, y, z, sleep_time)
 
 local to_prison
-to_prison = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "teleport %s %s %s %s" ENTER']=], player, '0', '300', '0')
+to_prison = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "teleport %s %s %s %s" ENTER']=], player, '0', '300', '0')
 
 local tp_back
 if player2 then
-	tp_back = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "teleport %s %s" ENTER']=], player, player2)
+	tp_back = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "teleport %s %s" ENTER']=], player, player2)
 else
-	tp_back = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "teleport %s %s %s %s" ENTER']=], player, x, y, z)
+	tp_back = string.format([=[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "teleport %s %s %s %s" ENTER']=], player, x, y, z)
 end
 
 --os.execute(to_prison .. ';' .. string.format('sleep %s', sleep_time) .. ';' .. tp_back .. ' &')

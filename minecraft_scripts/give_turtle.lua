@@ -22,7 +22,7 @@ local upgrades = {
 local place_string = table.concat(can_place, ',')
 local upgrade_string = table.concat(upgrades, ',')
 
-local player = arg[1] or '@p'
+local player = arg[1] or '@a'
 
 local turtle_cmd = string.format(
 	'give %s computercraft:turtle_advanced{CanPlaceOn:[%s],BlockEntityTag:{CanPlaceOn:[%s]},RightUpgrade:%s} 1',
@@ -36,7 +36,7 @@ local turtle_cmd = string.format(
 print(turtle_cmd)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "%s" ENTER']],
+	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	turtle_cmd
 )
 os.execute(cmd)
@@ -48,7 +48,7 @@ local coal_string = string.format(
 	coal_num
 )
 local coal_block_cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "%s" ENTER']],
+	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	coal_string
 )
 os.execute(coal_block_cmd)
@@ -75,7 +75,7 @@ local sword_cmd = string.format(
 )
 
 local s_cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:0 "%s" ENTER']],
+	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	sword_cmd
 )
 print(s_cmd)
