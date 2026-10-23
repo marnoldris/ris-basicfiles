@@ -62,3 +62,4 @@ end
 -- Note that every time you run set-app-filter it overwrites the previous filter, so you need to include everything at once
 os.execute(string.format('sudo malcontent-client set-app-filter %s --disallow-user-installation --disallow-system-installation app/io.github.ungoogled_software.ungoogled_chromium/x86_64/stable app/io.gitlab.librewolf-community/x86_64/stable', name))
 os.execute(string.format('sudo malcontent-client set-web-filter %s --force-safe-search --filter-type block-list adult=https://v.firebog.net/hosts/Prigent-Adult.txt advertising=https://v.firebog.net/hosts/Prigent-Ads.txt', name))
+os.execute('sudo systemctl enable --now malcontent-webd.service malcontent-webd-update.timer')
