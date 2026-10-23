@@ -19,7 +19,12 @@ os.execute(string.format('sudo usermod -aG student %s', name))
 
 -- Use setfacl to remove permissions to the given programs.
 for _, program in ipairs(blocked) do
-	os.execute(string.format('sudo setfacl -m g:student:--- %s', program))
+	local success, reason, code = os.execute(string.format('sudo setfacl -m g:student:--- %s', program))
+	if success then
+		print(string.format('Permissions removed for %s', program))
+	else
+		print(string.format('Error removing permissions for %s, reason: %s, code: %d', program, reason, code))
+	end
 end
 
 -- Use malcontent to restrict flatpaks and internet content
