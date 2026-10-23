@@ -37,6 +37,8 @@ end
 if not os.execute('id -u username >/dev/null 2>&1') then
 	print(string.format('User %s does not exist on the system, exiting...', name))
 	os.exit()
+else
+	print(string.format('Adjusting priveliges for %s...\n', name))
 end
 
 -- Make a student group and add the user to it
