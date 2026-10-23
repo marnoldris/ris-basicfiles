@@ -1,5 +1,17 @@
 #!/usr/bin/env lua
 
+
+local function usage()
+	print('Usage:\nlua lockdown.lua <user name defaults to "user"> <additional packages to block (must include user name)>')
+	os.exit()
+end
+
+local help = {['-h'] = true, ['--help'] = true}
+
+if help[arg[1]] then
+	usage()
+end
+
 local name = arg[1] or 'user'
 local blocked = {
 	'/usr/bin/dconf-editor',
@@ -12,6 +24,20 @@ local blocked = {
 	'/usr/bin/cachyos-pi',
 	'/usr/bin/cachyos-kernel-manager',
 }
+
+-- Parse args for additional programs to block
+if arg[2] then
+	for i=2, #arg do
+		table.insert(blocked, arg[i])
+		print(string.format('Added %s to block list.', arg[i]))
+	end
+end
+
+-- Check that the user exists, exit if not
+if not os.execute('id -u username >/dev/null 2>&1') then
+	print(string.format('User %s does not exist on the system, exiting...', name))
+	os.exit()
+end
 
 -- Make a student group and add the user to it
 os.execute('sudo groupadd student')
