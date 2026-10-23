@@ -34,7 +34,8 @@ if arg[2] then
 end
 
 -- Check that the user exists, exit if not
-if not os.execute('id -u username >/dev/null 2>&1') then
+local exists = os.execute('id -u username >/dev/null 2>&1')
+if not exists then
 	print(string.format('User %s does not exist on the system, exiting...', name))
 	os.exit()
 else
