@@ -34,6 +34,7 @@ if arg[2] then
 end
 
 -- Check that the user exists, exit if not
+--[[
 local exists = os.execute('id -u username >/dev/null 2>&1')
 if not exists then
 	print(string.format('User %s does not exist on the system, exiting...', name))
@@ -41,6 +42,7 @@ if not exists then
 else
 	print(string.format('Adjusting priveliges for %s...\n', name))
 end
+--]]
 
 -- Make a student group and add the user to it
 os.execute('sudo groupadd student')
