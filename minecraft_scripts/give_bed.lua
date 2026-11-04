@@ -35,7 +35,7 @@ local bed_cmd = string.format(
 print(bed_cmd)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
+	[[ssh -i ~/.ssh/mcs minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	bed_cmd
 )
 os.execute(cmd)

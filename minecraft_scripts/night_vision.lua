@@ -13,7 +13,7 @@ local night_vision = string.format(
 print(night_vision)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
+	[[ssh -i ~/.ssh/mcs minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	night_vision
 )
 os.execute(cmd)

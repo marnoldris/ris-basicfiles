@@ -9,8 +9,8 @@ local function execute_cmd(cmd)
 	return result
 end
 
-local ssh_server = 'ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154'
-local tmux_session = 'forge-server:0'
+local ssh_server = 'ssh -i ~/.ssh/mcs minecraft@10.100.3.154'
+local tmux_session = 'forge-server:1'
 
 os.execute(string.format([[%s 'tmux send-keys -t %s "list" C-m']], ssh_server, tmux_session))
 

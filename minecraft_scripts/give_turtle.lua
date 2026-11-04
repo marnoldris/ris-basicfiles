@@ -36,7 +36,7 @@ local turtle_cmd = string.format(
 print(turtle_cmd)
 
 local cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
+	[[ssh -i ~/.ssh/mcs minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	turtle_cmd
 )
 os.execute(cmd)
@@ -48,7 +48,7 @@ local coal_string = string.format(
 	coal_num
 )
 local coal_block_cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
+	[[ssh -i ~/.ssh/mcs minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	coal_string
 )
 os.execute(coal_block_cmd)
@@ -75,7 +75,7 @@ local sword_cmd = string.format(
 )
 
 local s_cmd = string.format(
-	[[ssh -i ~/.ssh/minecraft_srv minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
+	[[ssh -i ~/.ssh/mcs minecraft@10.100.3.154 'tmux send-keys -t forge-server:1 "%s" ENTER']],
 	sword_cmd
 )
 print(s_cmd)
