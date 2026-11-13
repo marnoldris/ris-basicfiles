@@ -13,23 +13,26 @@ local can_place = {
 	'\\"minecraft:spruce_planks\\"',
 	'\\"minecraft:mossy_cobblestone\\"',
 	'\\"minecraft:netherrack\\"',
+	'\\"minecraft:sculk\\"',
 }
 
 local upgrades = {
 	'\\"minecraft:diamond_pickaxe\\"',
+	'\\"minecraft:crafting_table\\"',
 }
 
 local place_string = table.concat(can_place, ',')
-local upgrade_string = table.concat(upgrades, ',')
+--local upgrade_string = table.concat(upgrades, ',')
 
 local player = arg[1] or '@a'
 
 local turtle_cmd = string.format(
-	'give %s computercraft:turtle_advanced{CanPlaceOn:[%s],BlockEntityTag:{CanPlaceOn:[%s]},RightUpgrade:%s} 1',
+	'give %s computercraft:turtle_advanced{CanPlaceOn:[%s],BlockEntityTag:{CanPlaceOn:[%s]},RightUpgrade:%s,LeftUpgrade:%s} 1',
 	player,
 	place_string,
 	place_string,
-	upgrade_string
+	upgrades[1],
+	upgrades[2]
 )
 
 
